@@ -1,10 +1,14 @@
-AdminThemeBundle [![knpbundles.com](http://knpbundles.com/avanzu/AdminThemeBundle/badge-short)](http://knpbundles.com/avanzu/AdminThemeBundle)
-================
+AdminThemeBundle fork
+=====================
 
+This branch is a slightly improved version of the [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), 
+bringing the AdminLTE theme to Symfony. 
 
-This branch includes all changes from the following branches:
+This branch is the same as master but with the following branches merged on top:
+
 - command-loading (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - symfony4 (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
 - dynamic options (see [#217](https://github.com/avanzu/AdminThemeBundle/pull/217))
 - fix-boxed-layout (see [#218](https://github.com/avanzu/AdminThemeBundle/pull/218))
+
 It is not meant to be pushed as Pull Request, but only for demo purposes.
