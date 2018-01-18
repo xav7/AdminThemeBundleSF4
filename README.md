@@ -9,6 +9,7 @@ This branch is the same as master but with the following branches merged on top:
 - command-loading (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - symfony4 (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
 - dynamic options (see [#217](https://github.com/avanzu/AdminThemeBundle/pull/217))
+- page-content-class (see[#220](https://github.com/avanzu/AdminThemeBundle/pull/220))
 
 It is not meant to be pushed as Pull Request, but only for demo purposes.
 
