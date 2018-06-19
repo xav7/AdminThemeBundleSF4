@@ -52,7 +52,7 @@ public function registerBundles()
 If you use 2.x branch or dev-master version of this bundle you need additionally:
 
 ```bash
-php bin/console avanzu:admin:initialize
+php bin/console avanzu:admin:initialize --web-dir public
 ```
 
 Install assets (preferably using symlink method but hardcopy works as well)...
