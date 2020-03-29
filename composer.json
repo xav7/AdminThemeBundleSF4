@@ -1,5 +1,5 @@
 {
-    "name": "oldy777/admin-theme-bundle-sf4",
+    "name": "fateevv85/admin-theme-bundle-sf4",
     "type": "symfony-bundle",
     "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
     "license": "MIT",
@@ -19,14 +19,15 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.5.9",
-        "symfony/process": ">=2.3",
+        "php": "^7.3",
+        "symfony/process": "^4.4",
         "symfony/options-resolver": ">=2.3",
         "symfony/http-foundation" : ">=2.3",
         "symfony/http-kernel"  : ">=2.3",
         "symfony/event-dispatcher" : ">=2.3",
         "almasaeed2010/adminlte": "~2.3.0",
-        "symfony/console": ">=2.3"
+        "symfony/console": "^4.4",
+        "twig/twig": "^3.0"
     },
     "require-dev": {
         "phpspec/prophecy": "^1.6"
