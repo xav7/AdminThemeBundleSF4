@@ -7,18 +7,17 @@
 
 namespace Avanzu\AdminThemeBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\FormatterHelper;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\Process;
 
-class FetchVendorCommand extends ContainerAwareCommand
+class FetchVendorCommand extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('avanzu:admin:fetch-vendor')
@@ -30,25 +29,32 @@ class FetchVendorCommand extends ContainerAwareCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $kernel = $this->getContainer()->get('kernel'); /** @var $kernel Kernel */
-        $res = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/bower');
-        $helper = $this->getHelperSet()->get('formatter'); /** @var $helper FormatterHelper */
+        $kernel = $this->getContainer()->get('kernel');
+        /** @var $kernel Kernel */
+        $res    = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/bower');
+        $helper = $this->getHelperSet()->get('formatter');
+        /** @var $helper FormatterHelper */
         $bower = $this->getContainer()->getParameter('avanzu_admin_theme.bower_bin');
 
-        $action = $input->getOption('update') ? 'update' : 'install';
-        $asRoot = $input->getOption('root') ? '--allow-root' : '';
+        $action  = $input->getOption('update') ? 'update' : 'install';
+        $asRoot  = $input->getOption('root') ? '--allow-root' : '';
         $process = new Process($bower . ' ' . $action . ' ' . $asRoot);
         $process->setTimeout(600);
         $output->writeln($helper->formatSection('Executing', $process->getCommandLine(), 'comment'));
         $process->setWorkingDirectory($res);
-        $process->run(function ($type, $buffer) use ($output, $helper) {
-            if(Process::ERR == $type) {
-                $output->write($helper->formatSection('Error', $buffer, 'error'));
-            } else {
-                $output->write($helper->formatSection('Progress', $buffer, 'info'));
+
+        $process->run(
+            function ($type, $buffer) use ($output, $helper) {
+                if (Process::ERR === $type) {
+                    $output->write($helper->formatSection('Error', $buffer, 'error'));
+                } else {
+                    $output->write($helper->formatSection('Progress', $buffer, 'info'));
+                }
             }
-        });
+        );
+
+        return 0;
     }
 }

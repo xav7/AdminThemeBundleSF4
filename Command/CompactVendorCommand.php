@@ -7,19 +7,19 @@
 
 namespace Avanzu\AdminThemeBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Finder\Shell\Command;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\Process;
 
-class CompactVendorCommand extends ContainerAwareCommand
+class CompactVendorCommand extends Command
 {
-    protected function configure() {
+    protected function configure(): void
+    {
         $this
             ->setName('avanzu:admin:compact-vendor')
             ->setDescription('Compact vendor assets')
@@ -31,7 +31,8 @@ class CompactVendorCommand extends ContainerAwareCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
         if (!$input->getOption('nojs')) {
             $this->compressVendorJs($output);
             $this->compressThemeJs($input, $output);
@@ -43,27 +44,32 @@ class CompactVendorCommand extends ContainerAwareCommand
 
         $this->copyFonts($input, $output);
         $this->copyImages($input, $output);
+
+        return 0;
     }
 
-    protected function getThemePath($type, InputInterface $input, $kernel) {
-        $theme = $input->getArgument('theme');
-        $themedir = strtr('@AvanzuAdminThemeBundle/Resources/vendor/bootflat/{type}',
-                          [
-                              '{theme}' => $theme,
-                              '{type}' => $type,
-                          ]);
-        $vendors = $kernel->locateResource($themedir);
+    protected function getThemePath($type, InputInterface $input, $kernel)
+    {
+        $theme    = $input->getArgument('theme');
+        $themedir = strtr(
+            '@AvanzuAdminThemeBundle/Resources/vendor/bootflat/{type}',
+            [
+                '{theme}' => $theme,
+                '{type}'  => $type,
+            ]
+        );
 
-        return $vendors;
+        return $kernel->locateResource($themedir);
     }
 
-    protected function copyFonts(InputInterface $input, OutputInterface $output) {
+    protected function copyFonts(InputInterface $input, OutputInterface $output): void
+    {
         $kernel = $this->getContainer()->get('kernel');
         /** @var $kernel Kernel */
         $helper = $this->getHelperSet()->get('formatter');
         /** @var $helper FormatterHelper */
         $vendors = $this->getThemePath('fonts', $input, $kernel);
-        $target = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/public/fonts');
+        $target  = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/public/fonts');
 
         $process = new Process(sprintf('rm -rf %s/*', $target));
         $output->writeln($helper->formatSection('Executing', $process->getCommandLine(), 'comment'));
@@ -74,13 +80,14 @@ class CompactVendorCommand extends ContainerAwareCommand
         $process->run();
     }
 
-    protected function copyImages(InputInterface $input, OutputInterface $output) {
+    protected function copyImages(InputInterface $input, OutputInterface $output): void
+    {
         $kernel = $this->getContainer()->get('kernel');
         /** @var $kernel Kernel */
         $helper = $this->getHelperSet()->get('formatter');
         /** @var $helper FormatterHelper */
         $vendors = $this->getThemePath('img', $input, $kernel);
-        $target = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/public/img');
+        $target  = $kernel->locateResource('@AvanzuAdminThemeBundle/Resources/public/img');
 
         $process = new Process(sprintf('rm -rf %s/*', $target));
         $output->writeln($helper->formatSection('Executing', $process->getCommandLine(), 'comment'));
@@ -91,14 +98,15 @@ class CompactVendorCommand extends ContainerAwareCommand
         $process->run();
     }
 
-    protected function compressThemeCss(InputInterface $input, OutputInterface $output) {
+    protected function compressThemeCss(InputInterface $input, OutputInterface $output): void
+    {
         $kernel = $this->getContainer()->get('kernel');
         /** @var $kernel Kernel */
         $helper = $this->getHelperSet()->get('formatter');
         /** @var $helper FormatterHelper */
         $vendors = $this->getThemePath('css', $input, $kernel);
 
-        $public = dirname(dirname(dirname($vendors))) . '/public';
+        $public = dirname($vendors, 3) . '/public';
         $script = $public . '/css/theme.min.css';
 
         $files = [
@@ -113,23 +121,26 @@ class CompactVendorCommand extends ContainerAwareCommand
         $output->writeln($helper->formatSection('Executing', $process->getCommandLine(), 'comment'));
         $process->setWorkingDirectory($vendors);
 
-        $process->run(function ($type, $buffer) use ($output, $helper) {
-            if (Process::ERR == $type) {
-                $output->write($helper->formatSection('Error', $buffer, 'error'));
-            } else {
-                $output->write($helper->formatSection('Progress', $buffer, 'info'));
+        $process->run(
+            function ($type, $buffer) use ($output, $helper) {
+                if (Process::ERR == $type) {
+                    $output->write($helper->formatSection('Error', $buffer, 'error'));
+                } else {
+                    $output->write($helper->formatSection('Progress', $buffer, 'info'));
+                }
             }
-        });
+        );
     }
 
-    protected function compressThemeJs(InputInterface $input, OutputInterface $output) {
+    protected function compressThemeJs(InputInterface $input, OutputInterface $output): void
+    {
         $kernel = $this->getContainer()->get('kernel');
         /** @var $kernel Kernel */
         $helper = $this->getHelperSet()->get('formatter');
         /** @var $helper FormatterHelper */
         $vendors = $this->getThemePath('js', $input, $kernel);
 
-        $public = dirname(dirname(dirname($vendors))) . '/public';
+        $public = dirname($vendors, 3) . '/public';
         $script = $public . '/js/theme.min.js';
 
         $files = [
@@ -142,16 +153,19 @@ class CompactVendorCommand extends ContainerAwareCommand
         $output->writeln($helper->formatSection('Compressing', $process->getCommandLine(), 'comment'));
         $process->setWorkingDirectory($vendors);
 
-        $process->run(function ($type, $buffer) use ($output, $helper) {
-            if (Process::ERR == $type) {
-                $output->write($helper->formatSection('Error', $buffer, 'error'));
-            } else {
-                $output->write($helper->formatSection('Progress', $buffer, 'info'));
+        $process->run(
+            function ($type, $buffer) use ($output, $helper) {
+                if (Process::ERR === $type) {
+                    $output->write($helper->formatSection('Error', $buffer, 'error'));
+                } else {
+                    $output->write($helper->formatSection('Progress', $buffer, 'info'));
+                }
             }
-        });
+        );
     }
 
-    protected function compressVendorJs(OutputInterface $output) {
+    protected function compressVendorJs(OutputInterface $output): void
+    {
         $kernel = $this->getContainer()->get('kernel');
         /** @var $kernel Kernel */
         $helper = $this->getHelperSet()->get('formatter');
@@ -184,12 +198,14 @@ class CompactVendorCommand extends ContainerAwareCommand
         $output->writeln($helper->formatSection('Compressing', $process->getCommandLine(), 'comment'));
         $process->setWorkingDirectory($vendors);
 
-        $process->run(function ($type, $buffer) use ($output, $helper) {
-            if (Process::ERR == $type) {
-                $output->write($helper->formatSection('Error', $buffer, 'error'));
-            } else {
-                $output->write($helper->formatSection('Progress', $buffer, 'info'));
+        $process->run(
+            function ($type, $buffer) use ($output, $helper) {
+                if (Process::ERR === $type) {
+                    $output->write($helper->formatSection('Error', $buffer, 'error'));
+                } else {
+                    $output->write($helper->formatSection('Progress', $buffer, 'info'));
+                }
             }
-        });
+        );
     }
 }

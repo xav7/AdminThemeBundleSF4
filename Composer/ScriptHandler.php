@@ -10,9 +10,10 @@
 
 namespace Avanzu\AdminThemeBundle\Composer;
 
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\PhpExecutableFinder;
 use Composer\Script\Event;
+use RuntimeException;
+use Symfony\Component\Process\PhpExecutableFinder;
+use Symfony\Component\Process\Process;
 
 /**
  * ScriptHandler
@@ -39,7 +40,7 @@ class ScriptHandler
         'symfony-web-dir' => 'web',
     ];
 
-    protected static function getOptions(Event $event)
+    protected static function getOptions(Event $event): array
     {
         $options = array_merge(self::$options, $event->getComposer()->getPackage()->getExtra());
 
@@ -54,25 +55,39 @@ class ScriptHandler
     {
         $phpFinder = new PhpExecutableFinder();
         if (!$phpPath = $phpFinder->find($includeArgs)) {
-            throw new \RuntimeException('The php executable could not be found, add it to your PATH environment variable and try again');
+            throw new RuntimeException(
+                'The php executable could not be found, add it to your PATH environment variable and try again'
+            );
         }
 
         return $phpPath;
     }
 
-    protected static function executeCommand(Event $event, $consoleDir, $cmd, $timeout = 300)
+    protected static function executeCommand(Event $event, $consoleDir, $cmd, $timeout = 300): void
     {
-        $php = escapeshellarg(self::getPhp(false));
+        $php     = escapeshellarg(self::getPhp(false));
         $phpArgs = implode(' ', array_map('escapeshellarg', self::getPhpArguments()));
         $console = escapeshellarg($consoleDir . '/console');
         if ($event->getIO()->isDecorated()) {
             $console .= ' --ansi';
         }
 
-        $process = new Process($php . ($phpArgs ? ' ' . $phpArgs : '') . ' ' . $console . ' ' . $cmd, null, null, null, $timeout);
-        $process->run(function ($type, $buffer) use ($event) { $event->getIO()->write($buffer, false); });
+        $process = new Process(
+            $php . ($phpArgs ? ' ' . $phpArgs : '') . ' ' . $console . ' ' . $cmd,
+            null,
+            null,
+            null,
+            $timeout
+        );
+        $process->run(
+            function ($type, $buffer) use ($event) {
+                $event->getIO()->write($buffer, false);
+            }
+        );
         if (!$process->isSuccessful()) {
-            throw new \RuntimeException(sprintf('An error occurred when executing the "%s" command.', escapeshellarg($cmd)));
+            throw new RuntimeException(
+                sprintf('An error occurred when executing the "%s" command.', escapeshellarg($cmd))
+            );
         }
     }
 
@@ -84,26 +99,26 @@ class ScriptHandler
      *
      * @return string|null The path to the console directory, null if not found.
      */
-    protected static function getConsoleDir(Event $event, $actionName)
+    protected static function getConsoleDir(Event $event, $actionName): ?string
     {
         $options = self::getOptions($event);
 
         if (self::useNewDirectoryStructure($options)) {
             if (!self::hasDirectory($event, 'symfony-bin-dir', $options['symfony-bin-dir'], $actionName)) {
-                return;
+                return null;
             }
 
             return $options['symfony-bin-dir'];
         }
 
         if (!self::hasDirectory($event, 'symfony-app-dir', $options['symfony-app-dir'], 'execute command')) {
-            return;
+            return null;
         }
 
         return $options['symfony-app-dir'];
     }
 
-    protected static function getPhpArguments()
+    protected static function getPhpArguments(): array
     {
         $arguments = [];
 
@@ -120,14 +135,14 @@ class ScriptHandler
     }
 
     /**
-     * Installl avanzu dependencies
+     * Install avanzu dependencies
      *
      * @param $event CommandEvent A instance
      */
-    public static function fetchThemeVendors(Event $event)
+    public static function fetchThemeVendors(Event $event): void
     {
         $event->getIO()->write('Installing theme assets', true);
-        $options = self::getOptions($event);
+        $options    = self::getOptions($event);
         $consoleDir = self::getConsoleDir($event, 'installing theme assets');
 
         if (null === $consoleDir) {
@@ -144,15 +159,23 @@ class ScriptHandler
      *
      * @return bool
      */
-    protected static function useNewDirectoryStructure(array $options)
+    protected static function useNewDirectoryStructure(array $options): bool
     {
         return isset($options['symfony-var-dir']) && is_dir($options['symfony-var-dir']);
     }
 
-    protected static function hasDirectory(Event $event, $configName, $path, $actionName)
+    protected static function hasDirectory(Event $event, $configName, $path, $actionName): bool
     {
         if (!is_dir($path)) {
-            $event->getIO()->write(sprintf('The %s (%s) specified in composer.json was not found in %s, can not %s.', $configName, $path, getcwd(), $actionName));
+            $event->getIO()->write(
+                sprintf(
+                    'The %s (%s) specified in composer.json was not found in %s, can not %s.',
+                    $configName,
+                    $path,
+                    getcwd(),
+                    $actionName
+                )
+            );
 
             return false;
         }
