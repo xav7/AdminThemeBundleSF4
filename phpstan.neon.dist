@@ -1,0 +1,22 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+   level: max
+   paths:
+       - Command
+       - Composer
+       - DependencyInjection
+       - Event
+       - EventListener
+       - Menu
+       - Model
+       - Resources
+       - Routing
+       - Theme
+       - Util
+   excludePaths:
+           analyseAndScan:
+               - vendor
+   checkMissingIterableValueType: false
+   checkGenericClassInNonGenericObjectType: false

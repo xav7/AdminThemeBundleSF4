@@ -17,7 +17,6 @@
             "role": "Developer Collaborator"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^7.4",
         "symfony/process": "^4.4",
@@ -33,7 +32,9 @@
         "ext-fileinfo": "*"
     },
     "require-dev": {
-        "phpspec/prophecy": "^1.6"
+        "phpspec/prophecy": "^1.6",
+        "phpstan/phpstan": "^0.12",
+        "vimeo/psalm": "^4.0"
     },
     "suggest" : {
         "knplabs/knp-menu-bundle" : "Allows easy menu integration."
