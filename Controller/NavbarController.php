@@ -12,15 +12,14 @@ use Avanzu\AdminThemeBundle\Event\NotificationListEvent;
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Avanzu\AdminThemeBundle\Event\TaskListEvent;
 use Avanzu\AdminThemeBundle\Event\ThemeEvents;
-use Avanzu\AdminThemeBundle\Controller\EmitterController;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
 {
     const MAX_NOTIFICATIONS = 5;
-    const MAX_MESSAGES = 5;
-    const MAX_TASKS = 5;
+    const MAX_MESSAGES      = 5;
+    const MAX_TASKS         = 5;
 
     /**
      * @return EventDispatcher
@@ -32,18 +31,18 @@ class NavbarController extends EmitterController
 
     public function notificationsAction($max = self::MAX_NOTIFICATIONS)
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_NOTIFICATIONS)) {
+        if (!$this->getDispatcher()->hasListeners(NotificationListEvent::class)) {
             return new Response();
         }
 
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_NOTIFICATIONS, new NotificationListEvent());
+        $listEvent = $this->getDispatcher()->dispatch(new NotificationListEvent());
 
         return $this->render(
-                    '@AvanzuAdminTheme/Navbar/notifications.html.twig',
-                        [
-                            'notifications' => $listEvent->getNotifications(),
-                            'total' => $listEvent->getTotal(),
-                        ]
+            '@AvanzuAdminTheme/Navbar/notifications.html.twig',
+            [
+                'notifications' => $listEvent->getNotifications(),
+                'total'         => $listEvent->getTotal(),
+            ]
         );
     }
 
@@ -54,18 +53,18 @@ class NavbarController extends EmitterController
      */
     public function messagesAction($max = self::MAX_MESSAGES)
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_MESSAGES)) {
+        if (!$this->getDispatcher()->hasListeners(MessageListEvent::class)) {
             return new Response();
         }
 
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_MESSAGES, new MessageListEvent());
+        $listEvent = $this->getDispatcher()->dispatch(new MessageListEvent());
 
         return $this->render(
-                    '@AvanzuAdminTheme/Navbar/messages.html.twig',
-                        [
-                            'messages' => $listEvent->getMessages(),
-                            'total' => $listEvent->getTotal(),
-                        ]
+            '@AvanzuAdminTheme/Navbar/messages.html.twig',
+            [
+                'messages' => $listEvent->getMessages(),
+                'total'    => $listEvent->getTotal(),
+            ]
         );
     }
 
@@ -83,11 +82,11 @@ class NavbarController extends EmitterController
         $listEvent = $this->triggerMethod(ThemeEvents::THEME_TASKS, new TaskListEvent($max));
 
         return $this->render(
-                    '@AvanzuAdminTheme/Navbar/tasks.html.twig',
-                        [
-                            'tasks' => $listEvent->getTasks(),
-                            'total' => $listEvent->getTotal(),
-                        ]
+            '@AvanzuAdminTheme/Navbar/tasks.html.twig',
+            [
+                'tasks' => $listEvent->getTasks(),
+                'total' => $listEvent->getTotal(),
+            ]
         );
     }
 
@@ -107,10 +106,10 @@ class NavbarController extends EmitterController
             return $this->render(
                 '@AvanzuAdminTheme/Navbar/user.html.twig',
                 [
-                    'user' => $userEvent->getUser(),
-                    'links' => $userEvent->getLinks(),
+                    'user'            => $userEvent->getUser(),
+                    'links'           => $userEvent->getLinks(),
                     'showProfileLink' => $userEvent->isShowProfileLink(),
-                    'showLogoutLink' => $userEvent->isShowLogoutLink(),
+                    'showLogoutLink'  => $userEvent->isShowLogoutLink(),
                 ]
             );
         }

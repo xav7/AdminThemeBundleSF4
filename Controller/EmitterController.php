@@ -9,7 +9,7 @@ namespace Avanzu\AdminThemeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class EmitterController extends Controller
 {
@@ -46,11 +46,11 @@ class EmitterController extends Controller
     {
         $method = sprintf('on%s', Container::camelize(str_replace('.', '_', $eventName)));
 
-        if(is_callable([$this, $method])) {
+        if (is_callable([$this, $method])) {
             call_user_func_array([$this, $method], [$event]);
         }
 
-        if($event->isPropagationStopped()){
+        if ($event->isPropagationStopped()) {
             return $event;
         }
 

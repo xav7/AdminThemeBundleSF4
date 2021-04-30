@@ -9,7 +9,6 @@ namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Avanzu\AdminThemeBundle\Event\SidebarMenuEvent;
-use Avanzu\AdminThemeBundle\Event\ThemeEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,21 +17,21 @@ class SidebarController extends Controller
 {
     /**
      * Block used in macro avanzu_sidebar_user
-     *  
+     *
      * @return \Symfony\Component\HttpFoundation\Response|unknown
      */
     public function userPanelAction()
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_SIDEBAR_USER)) {
+        if (!$this->getDispatcher()->hasListeners(ShowUserEvent::class)) {
             return new Response();
         }
-        $userEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_USER, new ShowUserEvent());
+        $userEvent = $this->getDispatcher()->dispatch(new ShowUserEvent());
 
         return $this->render(
-                    '@AvanzuAdminTheme/Sidebar/user-panel.html.twig',
-                        [
-                            'user' => $userEvent->getUser(),
-                        ]
+            '@AvanzuAdminTheme/Sidebar/user-panel.html.twig',
+            [
+                'user' => $userEvent->getUser(),
+            ]
         );
     }
 
@@ -46,7 +45,7 @@ class SidebarController extends Controller
 
     /**
      * Block used in macro avanzu_sidebar_search
-     * 
+     *
      * @return unknown
      */
     public function searchFormAction()
@@ -56,17 +55,17 @@ class SidebarController extends Controller
 
     public function menuAction(Request $request)
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_SIDEBAR_SETUP_MENU)) {
+        if (!$this->getDispatcher()->hasListeners(SidebarMenuEvent::class)) {
             return new Response();
         }
 
-        $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_SETUP_MENU, new SidebarMenuEvent($request));
+        $event = $this->getDispatcher()->dispatch(new SidebarMenuEvent($request));
 
         return $this->render(
-                    '@AvanzuAdminTheme/Sidebar/menu.html.twig',
-                        [
-                            'menu' => $event->getItems(),
-                        ]
+            '@AvanzuAdminTheme/Sidebar/menu.html.twig',
+            [
+                'menu' => $event->getItems(),
+            ]
         );
     }
 }
