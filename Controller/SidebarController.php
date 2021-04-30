@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * SidebarController.php
  * avanzu-admin
@@ -9,63 +11,64 @@ namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Avanzu\AdminThemeBundle\Event\SidebarMenuEvent;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+use Twig\Environment;
 
-class SidebarController extends AbstractController
+class SidebarController
 {
+    private Environment              $twig;
+
+    private EventDispatcherInterface $eventDispatcher;
+
+    public function __construct(Environment $twig, EventDispatcherInterface $eventDispatcher)
+    {
+        $this->twig            = $twig;
+        $this->eventDispatcher = $eventDispatcher;
+    }
+
     /**
      * Block used in macro avanzu_sidebar_user
-     *
-     * @return \Symfony\Component\HttpFoundation\Response|unknown
      */
-    public function userPanelAction()
+    public function userPanelAction(): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ShowUserEvent::class)) {
+        if (!$this->eventDispatcher->hasListeners(ShowUserEvent::class)) {
             return new Response();
         }
-        $userEvent = $this->getDispatcher()->dispatch(new ShowUserEvent());
 
-        return $this->render(
+        $userEvent = $this->eventDispatcher->dispatch(new ShowUserEvent());
+
+        $content = $this->twig->render(
             '@AvanzuAdminTheme/Sidebar/user-panel.html.twig',
             [
                 'user' => $userEvent->getUser(),
             ]
         );
+
+        return new Response($content);
     }
 
-    /**
-     * @return EventDispatcher
-     */
-    protected function getDispatcher()
+    public function searchFormAction(): Response
     {
-        return $this->get('event_dispatcher');
+        return new Response($this->twig->render('@AvanzuAdminTheme/Sidebar/search-form.html.twig'));
     }
 
-    /**
-     * Block used in macro avanzu_sidebar_search
-     *
-     * @return unknown
-     */
-    public function searchFormAction()
+    public function menuAction(Request $request): Response
     {
-        return $this->render('@AvanzuAdminTheme/Sidebar/search-form.html.twig', []);
-    }
-
-    public function menuAction(Request $request)
-    {
-        if (!$this->getDispatcher()->hasListeners(SidebarMenuEvent::class)) {
+        if (!$this->eventDispatcher->hasListeners(SidebarMenuEvent::class)) {
             return new Response();
         }
 
-        $event = $this->getDispatcher()->dispatch(new SidebarMenuEvent($request));
+        $event = $this->eventDispatcher->dispatch(new SidebarMenuEvent($request));
 
-        return $this->render(
+        $content = $this->twig->render(
             '@AvanzuAdminTheme/Sidebar/menu.html.twig',
             [
                 'menu' => $event->getItems(),
             ]
         );
+
+        return new Response($content);
     }
 }
