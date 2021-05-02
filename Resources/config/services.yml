@@ -49,3 +49,4 @@ services:
 
   Avanzu\AdminThemeBundle\Controller\:
     resource: '../../Controller'
+    tags: ['controller.service_arguments']
