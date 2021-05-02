@@ -19,6 +19,8 @@ use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\Process;
 
+use function dirname;
+
 class BuildAssetsCommand extends Command
 {
     const DEFAULT_UGLIFY_JS_LINUX = '/usr/bin/env uglifyjs';
@@ -82,7 +84,7 @@ class BuildAssetsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @var $kernel Kernel */
+        /** @var Kernel $kernel */
         $this->kernel   = $this->getContainer()->get('kernel');
         $this->webdir   = dirname($this->getContainer()->getParameter('kernel.root_dir')) . '/web';
         $this->builddir = $this->pubdir . '/static/' . $input->getOption('env');

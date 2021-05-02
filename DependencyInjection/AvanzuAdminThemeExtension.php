@@ -2,14 +2,14 @@
 
 namespace Avanzu\AdminThemeBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
-use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -21,48 +21,41 @@ class AvanzuAdminThemeExtension extends Extension implements PrependExtensionInt
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $baseConfiguration = new Configuration();
 
         // Load the configuration from files
-        try
-        {
+        try {
             $config = $this->processConfiguration($baseConfiguration, $configs);
-        }
-        catch(InvalidConfigurationException $e)
-        {
+        } catch (InvalidConfigurationException $e) {
             // Fallback: ignore invalid config from the container user config file and abort use configuration in load
-            echo 'AvanzuAdminBundle: invalid config (load): ' . $e->getMessage() . PHP_EOL . '    The config options for the bundle AvanzuAdminBundle were skipped' . PHP_EOL;
+            echo 'AvanzuAdminBundle: invalid config (load): ' . $e->getMessage() . PHP_EOL
+                . '    The config options for the bundle AvanzuAdminBundle were skipped' . PHP_EOL;
             $config = [];
         }
 
         // Use the config only if it is fully validated from the processed configuration
-        if(!empty($config))
-        {
+        if (!empty($config)) {
             // Set the parameters from config files
-            $container->setParameter('avanzu_admin_theme.bower_bin', (string) (isset($config['bower_bin']) ? $config['bower_bin'] : ''));
-            $container->setParameter('avanzu_admin_theme.use_twig', (bool) (isset($config['use_twig']) ? $config['use_twig'] : FALSE));
-            $container->setParameter('avanzu_admin_theme.options', (array) (isset($config['options']) ? $config['options'] : []));
+            $container->setParameter('avanzu_admin_theme.bower_bin', (string)($config['bower_bin'] ?? ''));
+            $container->setParameter('avanzu_admin_theme.use_twig', (bool)($config['use_twig'] ?? false));
+            $container->setParameter('avanzu_admin_theme.options', (array)($config['options'] ?? []));
         }
 
         // Load the services (with parameters loaded), since twig require theme_manager service
-        try
-        {
+        try {
             $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.xml');
-        }
-        catch(FileLocatorFileNotFoundException $e) // Symfony 3.3 and 4.x are based in YAML
+        } catch (FileLocatorFileNotFoundException $e) // Symfony 3.3 and 4.x are based in YAML
         {
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yml');
-        }
-        catch(InvalidArgumentException $e) // Symfony 3.3 and 4.x are based in YAML
+        } catch (InvalidArgumentException $e) // Symfony 3.3 and 4.x are based in YAML
         {
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yml');
-        }
-        catch(\Exception $e) // Symfony 3.3 and 4.x are based in YAML
+        } catch (\Exception $e) // Symfony 3.3 and 4.x are based in YAML
         {
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yml');
@@ -86,29 +79,39 @@ class AvanzuAdminThemeExtension extends Extension implements PrependExtensionInt
         // The configuration of AvanzuAdminThemeExtension
         $configs = $container->getExtensionConfig($this->getAlias());
 
-        try
-        {
+        try {
             // use the Configuration class to generate a config array with the config extension
             $config = $this->processConfiguration($baseConfiguration, $configs);
-        }
-        catch(InvalidConfigurationException $e)
-        {
+        } catch (InvalidConfigurationException $e) {
             // Fallback: ignore invalid config from the container user config file and abort use configuration in prepend
-            echo 'AvanzuAdminBundle: invalid config (prepend): ' . $e->getMessage() . PHP_EOL . '    The config options for the bundle AvanzuAdminBundle were skipped' . PHP_EOL;
+            echo 'AvanzuAdminBundle: invalid config (prepend): ' . $e->getMessage() . PHP_EOL
+                . '    The config options for the bundle AvanzuAdminBundle were skipped' . PHP_EOL;
             $config = [];
         }
 
         // Create the parameter for the service (dependency with avanzu_admin_theme.extension.class) even if empty config
-        $container->setParameter('avanzu_admin_theme.options', (array) (isset($config['options']) ? $config['options'] : []));
+        $container->setParameter(
+            'avanzu_admin_theme.options',
+            (array)($config['options'] ?? [])
+        );
 
         // Use the config only if it is fully validated from the processed configuration
-        if(!empty($config))
-        {
+        if (!empty($config)) {
             // Set the parameters from config files
-            $container->setParameter('avanzu_admin_theme.bower_bin', (string) (isset($config['bower_bin']) ? $config['bower_bin'] : ''));
-            $container->setParameter('avanzu_admin_theme.use_twig', (bool) (isset($config['use_twig']) ? $config['use_twig'] : FALSE));
+            $container->setParameter(
+                'avanzu_admin_theme.bower_bin',
+                (string)($config['bower_bin'] ?? '')
+            );
+            $container->setParameter(
+                'avanzu_admin_theme.use_twig',
+                (bool)($config['use_twig'] ?? false)
+            );
 
-            // Get all the bundles
+            /**
+             * Get all the bundles
+             *
+             * @var array $bundles
+             */
             $bundles = $container->getParameter('kernel.bundles');
 
             // Inject in twig global config the theme_manager service
@@ -119,7 +122,7 @@ class AvanzuAdminThemeExtension extends Extension implements PrependExtensionInt
                         'form_theme' => [
                             '@AvanzuAdminTheme/layout/form-theme.html.twig',
                         ],
-                        'globals' => [
+                        'globals'    => [
                             'admin_theme' => '@avanzu_admin_theme.theme_manager',
                         ],
                     ]
@@ -127,12 +130,12 @@ class AvanzuAdminThemeExtension extends Extension implements PrependExtensionInt
             }
 
             if ($config['use_assetic'] && isset($bundles['AsseticBundle'])) {
-                $assets = include dirname(__FILE__) . '/../Resources/config/assets.php';
+                $assets = include __DIR__ . '/../Resources/config/assets.php';
 
                 $container->prependExtensionConfig(
                     'assetic',
                     [
-                        'assets' => $assets,
+                        'assets'  => $assets,
                         'bundles' => [
                             'AvanzuAdminThemeBundle',
                         ],

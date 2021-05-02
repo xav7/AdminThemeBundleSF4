@@ -1,44 +1,51 @@
 parameters:
-    avanzu_admin_theme.exception_controller.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
-    twig.controller.exception.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
-    avanzu_admin_theme.extension.class: Avanzu\AdminThemeBundle\Twig\AvanzuAdminExtension
-    avanzu_admin_theme.context_helper.class: Avanzu\AdminThemeBundle\Helper\ContextHelper
-    avanzu_admin_theme.admin_router.class: Avanzu\AdminThemeBundle\Routing\RouteAliasCollection
-    avanzu_admin_theme.theme_manager.class: Avanzu\AdminThemeBundle\Theme\ThemeManager
-    avanzu_admin_theme.container.class: Symfony\Component\DependencyInjection\Container
+  avanzu_admin_theme.exception_controller.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
+  twig.controller.exception.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
+  avanzu_admin_theme.extension.class: Avanzu\AdminThemeBundle\Twig\AvanzuAdminExtension
+  avanzu_admin_theme.context_helper.class: Avanzu\AdminThemeBundle\Helper\ContextHelper
+  avanzu_admin_theme.admin_router.class: Avanzu\AdminThemeBundle\Routing\RouteAliasCollection
+  avanzu_admin_theme.theme_manager.class: Avanzu\AdminThemeBundle\Theme\ThemeManager
+  avanzu_admin_theme.container.class: Symfony\Component\DependencyInjection\Container
 
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
 
-    avanzu_admin_theme.theme_manager:
-        class: "%avanzu_admin_theme.theme_manager.class%"
-        arguments:
-            - "%avanzu_admin_theme.container.class%"
+  avanzu_admin_theme.theme_manager:
+    class: "%avanzu_admin_theme.theme_manager.class%"
+    arguments:
+      - "%avanzu_admin_theme.container.class%"
 
-    avanzu_admin_theme.admin_router:
-        class: "%avanzu_admin_theme.admin_router.class%"
-        arguments:
-            - "%kernel.cache_dir%"
-            - "@router"
-            - "avanzu_admin_route"
-            - "%kernel.environment%"
-            - "%kernel.debug%"
+  avanzu_admin_theme.admin_router:
+    class: "%avanzu_admin_theme.admin_router.class%"
+    arguments:
+      - "%kernel.cache_dir%"
+      - "@router"
+      - "avanzu_admin_route"
+      - "%kernel.environment%"
+      - "%kernel.debug%"
 
-    avanzu_admin_theme.exception_controller:
-        class: "%avanzu_admin_theme.exception_controller.class%"
-        arguments: ['@twig', '%kernel.debug%']
+  avanzu_admin_theme.exception_controller:
+    class: "%avanzu_admin_theme.exception_controller.class%"
+    arguments: [ '@twig', '%kernel.debug%' ]
 
-    avanzu_admin_theme.extension.class:
-        class: "%avanzu_admin_theme.extension.class%"
-        tags:
-            - { name: twig.extension }
-        arguments: ['%avanzu_admin_theme.options%', '%kernel.environment%', "@avanzu_admin_theme.admin_router"]
+  avanzu_admin_theme.extension.class:
+    class: "%avanzu_admin_theme.extension.class%"
+    tags:
+      - { name: twig.extension }
+    arguments: [ '%avanzu_admin_theme.options%', '%kernel.environment%', "@avanzu_admin_theme.admin_router" ]
 
-    avanzu_admin_theme.context_helper:
-        class: "%avanzu_admin_theme.context_helper.class%"
-        arguments:
-            - "%avanzu_admin_theme.options%"
-            - "@avanzu_admin_theme.admin_router"
+  avanzu_admin_theme.context_helper:
+    class: "%avanzu_admin_theme.context_helper.class%"
+    arguments:
+      - "%avanzu_admin_theme.options%"
+      - "@avanzu_admin_theme.admin_router"
 
-    Avanzu\AdminThemeBundle\Command\:
-      resource: ../../Command
-      tags: [console.command]
+  Avanzu\AdminThemeBundle\Command\:
+    resource: ../../Command
+    tags: [ console.command ]
+
+  Avanzu\AdminThemeBundle\Controller\:
+    resource: '../../Controller'
