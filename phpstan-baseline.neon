@@ -211,11 +211,6 @@ parameters:
 			path: Command/BuildAssetsCommand.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$kernel Kernel\\)\\: Unexpected token \"\\$kernel\", expected type at offset 9$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
 			message: "#^PHPDoc tag @var has invalid value \\(\\)\\: Unexpected token \"\\\\r\\\\n     \", expected type at offset 16$#"
 			count: 1
 			path: Command/BuildAssetsCommand.php
@@ -292,6 +287,11 @@ parameters:
 
 		-
 			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:partition\\(\\) has invalid type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Variable \\$kernel in PHPDoc tag @var does not exist\\.$#"
 			count: 1
 			path: Command/BuildAssetsCommand.php
 
@@ -541,41 +541,6 @@ parameters:
 			path: Composer/ScriptHandler.php
 
 		-
-			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Controller\\\\ExceptionController\\:\\:templateExists\\(\\)\\.$#"
-			count: 3
-			path: Controller/ExceptionController.php
-
-		-
-			message: "#^Call to an undefined static method Symfony\\\\Component\\\\HttpKernel\\\\Controller\\\\ErrorController\\:\\:findTemplate\\(\\)\\.$#"
-			count: 2
-			path: Controller/ExceptionController.php
-
-		-
-			message: "#^Instantiated class Symfony\\\\Bundle\\\\FrameworkBundle\\\\Templating\\\\TemplateReference not found\\.$#"
-			count: 3
-			path: Controller/ExceptionController.php
-
-		-
-			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Controller\\\\ExceptionController\\:\\:findTemplate\\(\\) has invalid type Symfony\\\\Bundle\\\\FrameworkBundle\\\\Templating\\\\TemplateReference\\.$#"
-			count: 1
-			path: Controller/ExceptionController.php
-
-		-
-			message: "#^Cannot access offset 'AsseticBundle' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
-			count: 1
-			path: DependencyInjection/AvanzuAdminThemeExtension.php
-
-		-
-			message: "#^Cannot access offset 'TwigBundle' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
-			count: 1
-			path: DependencyInjection/AvanzuAdminThemeExtension.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\AvanzuAdminThemeExtension\\:\\:load\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: DependencyInjection/AvanzuAdminThemeExtension.php
-
-		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\AvanzuAdminThemeExtension\\:\\:prepend\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: DependencyInjection/AvanzuAdminThemeExtension.php
@@ -732,11 +697,6 @@ parameters:
 
 		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:__construct\\(\\) has parameter \\$request with no typehint specified\\.$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:addItem\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: Event/SidebarMenuEvent.php
 
@@ -904,66 +864,6 @@ parameters:
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:getMenu\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: EventListener/SidebarSetupMenuDemoListener.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:onSetupMenu\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: EventListener/SidebarSetupMenuDemoListener.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:configureDefaults\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:fromAlias\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:getOption\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:hasAlias\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:hasOption\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:initialize\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:setOption\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Helper\\\\ContextHelper\\:\\:setOption\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 19$#"
-			count: 4
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 24$#"
-			count: 1
-			path: Helper/ContextHelper.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$value\\)\\: Unexpected token \"\\$value\", expected type at offset 40$#"
-			count: 1
-			path: Helper/ContextHelper.php
 
 		-
 			message: "#^Call to method createItem\\(\\) on an unknown class Knp\\\\Menu\\\\FactoryInterface\\.$#"
@@ -1509,51 +1409,6 @@ parameters:
 			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getResolver\\(\\) has invalid type Avanzu\\\\FoundationBundle\\\\Util\\\\DependencyResolverInterface\\.$#"
 			count: 1
 			path: Theme/ThemeManager.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:__construct\\(\\) has parameter \\$env with no typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:__construct\\(\\) has parameter \\$options with no typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:bodyClass\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:bodyClass\\(\\) has parameter \\$classes with no typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:getName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$env\\)\\: Unexpected token \"\\$env\", expected type at offset 135$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$options\\)\\: Unexpected token \"\\$options\", expected type at offset 90$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:\\$env has no typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
-
-		-
-			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Twig\\\\AvanzuAdminExtension\\:\\:\\$options has no typehint specified\\.$#"
-			count: 1
-			path: Twig/AvanzuAdminExtension.php
 
 		-
 			message: "#^Argument of an invalid type null supplied for foreach, only iterables are supported\\.$#"

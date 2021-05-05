@@ -49,4 +49,5 @@ services:
 
   Avanzu\AdminThemeBundle\Controller\:
     resource: '../../Controller'
+    exclude: '../../Controller/ExceptionController.php
     tags: ['controller.service_arguments']

@@ -3,7 +3,7 @@ test:
 
 test-static:
 	@make phpstan
-	@make psalm
+#	@make psalm
 
 phpstan:
 	./vendor/bin/phpstan analyse -c phpstan.neon.dist

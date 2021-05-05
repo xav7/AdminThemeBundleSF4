@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * SidebarSetupMenuDemoListener.php
  * avanzu-admin
@@ -13,9 +15,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SidebarSetupMenuDemoListener
 {
-    public function onSetupMenu(SidebarMenuEvent $event)
+    public function onSetupMenu(SidebarMenuEvent $event): void
     {
         $request = $event->getRequest();
+
+        if (!$request) {
+            return;
+        }
 
         foreach ($this->getMenu($request) as $item) {
             $event->addItem($item);
@@ -24,7 +30,7 @@ class SidebarSetupMenuDemoListener
 
     protected function getMenu(Request $request)
     {
-        $earg = [];
+        $earg      = [];
         $rootItems = [
             $dash = new MenuItemModel('dashboard', 'Dashboard', 'avanzu_admin_dash_demo', $earg, 'fa fa-dashboard'),
             $form = new MenuItemModel('forms', 'Forms', 'avanzu_admin_form_demo', $earg, 'fa fa-edit'),
@@ -38,15 +44,14 @@ class SidebarSetupMenuDemoListener
         return $this->activateByRoute($request->get('_route'), $rootItems);
     }
 
-    protected function activateByRoute($route, $items) {
-        foreach($items as $item) { /** @var $item MenuItemModel */
-            if($item->hasChildren()) {
+    protected function activateByRoute($route, $items)
+    {
+        /** @var MenuItemModel $item */
+        foreach ($items as $item) {
+            if ($item->hasChildren()) {
                 $this->activateByRoute($route, $item->getChildren());
-            }
-            else {
-                if($item->getRoute() == $route) {
-                    $item->setIsActive(true);
-                }
+            } elseif ($item->getRoute() === $route) {
+                $item->setIsActive(true);
             }
         }
 

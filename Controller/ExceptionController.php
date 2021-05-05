@@ -14,14 +14,9 @@ use Symfony\Component\HttpKernel\Controller\ErrorController;
 class ExceptionController extends ErrorController
 {
     /**
-     * @param Request $request
-     * @param string  $format
-     * @param int     $code
-     * @param bool    $debug
-     *
      * @return TemplateReference
      */
-    protected function findTemplate(Request $request, $format, $code, $debug)
+    protected function findTemplate(Request $request, string $format, int $code, bool $debug)
     {
         if(strpos($request->getPathInfo(), '/admin') !== 0) {
             return parent::findTemplate($request, $format, $code, $debug);
