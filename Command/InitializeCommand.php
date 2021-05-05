@@ -7,7 +7,7 @@
 
 namespace Avanzu\AdminThemeBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -21,9 +21,9 @@ use Symfony\Component\Finder\Finder;
  * Class InitializeCommand
  *
  */
-class InitializeCommand extends ContainerAwareCommand
+class InitializeCommand extends Command
 {
-    const METHOD_COPY = 'copy';
+    const METHOD_COPY             = 'copy';
     const METHOD_ABSOLUTE_SYMLINK = 'absolute symlink';
     const METHOD_RELATIVE_SYMLINK = 'relative symlink';
 
@@ -32,35 +32,22 @@ class InitializeCommand extends ContainerAwareCommand
      */
     private $filesystem;
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('avanzu:admin:initialize')
             ->addOption('vendor-dir', null, InputOption::VALUE_OPTIONAL, 'path to vendors', 'vendor')
             ->addOption('theme-dir', null, InputOption::VALUE_OPTIONAL, 'path to adminlte', 'almasaeed2010/adminlte')
             ->addOption('web-dir', null, InputOption::VALUE_OPTIONAL, 'path to web', 'web')
             ->addOption('symlink', null, InputOption::VALUE_NONE, 'Symlinks the assets instead of copying it')
-            ->addOption('relative', null, InputOption::VALUE_NONE, 'Make relative symlinks')
-        ;
+            ->addOption('relative', null, InputOption::VALUE_NONE, 'Make relative symlinks');
     }
 
-    /**
-     * @param                $appDir
-     * @param InputInterface $input
-     *
-     * @return string
-     */
-    protected function getVendorDir(InputInterface $input)
+    protected function getVendorDir(InputInterface $input): string
     {
-         return $input->getOption('vendor-dir');
+        return $input->getOption('vendor-dir');
     }
 
-    /**
-     * @param                $appDir
-     * @param InputInterface $input
-     *
-     * @return string
-     */
-    protected function getThemeDir(InputInterface $input)
+    protected function getThemeDir(InputInterface $input): string
     {
         return sprintf('%s/%s', $this->getVendorDir($input), $input->getOption('theme-dir'));
     }
@@ -73,19 +60,19 @@ class InitializeCommand extends ContainerAwareCommand
      */
     protected function getDirectorySetup(ContainerInterface $dic, InputInterface $input)
     {
-        $appDir = $dic->getParameter('kernel.root_dir');
+        $appDir     = $dic->getParameter('kernel.root_dir');
         $projectDir = dirname($appDir);
-        $vendors = $this->getVendorDir($input);
-        $theme = $this->getThemeDir($input);
-        $self = dirname(__DIR__);
+        $vendors    = $this->getVendorDir($input);
+        $theme      = $this->getThemeDir($input);
+        $self       = dirname(__DIR__);
 
         return (object) [
-            'app' => $appDir,
+            'app'     => $appDir,
             'project' => $projectDir,
             'vendors' => $vendors,
-            'theme' => $theme,
-            'self' => $self,
-            'public' => $input->getOption('web-dir'),
+            'theme'   => $theme,
+            'self'    => $self,
+            'public'  => $input->getOption('web-dir'),
         ];
     }
 
@@ -96,7 +83,7 @@ class InitializeCommand extends ContainerAwareCommand
      *
      * @return string
      */
-    protected function establishLink($originDir, $targetDir, $expectedMethod)
+    protected function establishLink($originDir, $targetDir, $expectedMethod): string
     {
         $this->filesystem->remove($targetDir);
 
@@ -111,18 +98,12 @@ class InitializeCommand extends ContainerAwareCommand
         return $method;
     }
 
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $dic = $this->getContainer();
-        $fs = $dic->get('filesystem');
-        $folders = $this->getDirectorySetup($dic, $input);
-        $io = new SymfonyStyle($input, $output);
+        $dic              = $this->getContainer();
+        $fs               = $dic->get('filesystem');
+        $folders          = $this->getDirectorySetup($dic, $input);
+        $io               = new SymfonyStyle($input, $output);
         $this->filesystem = $fs;
 
         if ($input->getOption('relative')) {
@@ -142,10 +123,12 @@ class InitializeCommand extends ContainerAwareCommand
             $io->text("installing <info>$directory</info>");
 
             $lnFrom = sprintf('%s/%s', $folders->theme, $directory);
-            $lnTo = sprintf('%s/theme/%s', $folders->public, $directory);
+            $lnTo   = sprintf('%s/theme/%s', $folders->public, $directory);
 
             $this->establishLink($lnFrom, $lnTo, $expectedMethod);
         }
+
+        return 0;
     }
 
     /**
@@ -205,11 +188,17 @@ class InitializeCommand extends ContainerAwareCommand
     private function symlink($originDir, $targetDir, $relative = false)
     {
         if ($relative) {
-            $originDir = rtrim($this->filesystem->makePathRelative($originDir, dirname($targetDir)), DIRECTORY_SEPARATOR);
+            $originDir =
+                rtrim($this->filesystem->makePathRelative($originDir, dirname($targetDir)), DIRECTORY_SEPARATOR);
         }
         $this->filesystem->symlink($originDir, $targetDir);
         if (!file_exists($targetDir)) {
-            throw new IOException(sprintf('Symbolic link "%s" was created but appears to be broken.', $targetDir), 0, null, $targetDir);
+            throw new IOException(
+                sprintf('Symbolic link "%s" was created but appears to be broken.', $targetDir),
+                0,
+                null,
+                $targetDir
+            );
         }
     }
 
@@ -223,7 +212,7 @@ class InitializeCommand extends ContainerAwareCommand
      */
     private function hardCopy($originDir, $targetDir)
     {
-        if(is_file($originDir)) {
+        if (is_file($originDir)) {
             $this->filesystem->mkdir(dirname($targetDir), 0777);
             $this->filesystem->copy($originDir, $targetDir, false);
 

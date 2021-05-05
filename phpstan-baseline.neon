@@ -1,0 +1,1507 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to offset 'fonts' on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Access to offset 'scripts' on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Access to offset 'styles' on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Anonymous function has an unused use \\$in\\.$#"
+			count: 2
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Binary operation \"\\.\" between string and array\\<string\\>\\|bool\\|string\\|null results in an error\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:getContainer\\(\\)\\.$#"
+			count: 2
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method copy\\(\\) on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method exists\\(\\) on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method files\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method getFilename\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
+			count: 2
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method getRealPath\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to method mkdir\\(\\) on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Instantiated class Symfony\\\\Component\\\\Finder\\\\Finder not found\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Iterating over an object of an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Iterating over an object of an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:endsWith\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:endsWith\\(\\) has parameter \\$extension with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:endsWith\\(\\) has parameter \\$file with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:findFonts\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:group2file\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:group2file\\(\\) has parameter \\$extension with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:group2file\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:isImage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:isImage\\(\\) has parameter \\$file with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processScript\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processScript\\(\\) has parameter \\$files with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processScript\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has parameter \\$files with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has parameter \\$fs with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has parameter \\$in with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processStyle\\(\\) has parameter \\$out with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:resolve\\(\\) has parameter \\$groups with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:resolve\\(\\) has parameter \\$input with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:resolveAll\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:resolveAll\\(\\) has parameter \\$assets with no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$files\\)\\: Unexpected token \"\\$files\", expected type at offset 72$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 35$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$file contains unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\)\\: Unexpected token \"\\\\r\\\\n     \", expected type at offset 16$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$command of class Symfony\\\\Component\\\\Process\\\\Process constructor expects array, string given\\.$#"
+			count: 2
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$directory of class DirectoryIterator constructor expects string, array\\|string given\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function strpos expects string, string\\|false given\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$shortcut of method Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:addOption\\(\\) expects array\\|string\\|null, false given\\.$#"
+			count: 2
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#3 \\$fs of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) expects Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown, Symfony\\\\Component\\\\Filesystem\\\\Filesystem given\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#4 \\$in of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) expects Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown, Symfony\\\\Component\\\\Console\\\\Input\\\\InputInterface given\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\#5 \\$out of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) expects Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown, Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface given\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\$files of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\$fs of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\$in of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\$name of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Parameter \\$out of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:processFonts\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:\\$builddir has no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:\\$webdir has no typehint specified\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Command\\\\BuildAssetsCommand\\:\\:partition\\(\\) has invalid type Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Variable \\$kernel in PHPDoc tag @var does not exist\\.$#"
+			count: 1
+			path: Command/BuildAssetsCommand.php
+
+		-
+			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Command\\\\CompactVendorCommand\\:\\:getContainer\\(\\)\\.$#"
+			count: 5
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Console\\\\Helper\\\\HelperInterface\\:\\:formatSection\\(\\)\\.$#"
+			count: 15
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Symfony\\\\Component\\\\Console\\\\Helper\\\\HelperSet\\|null\\.$#"
+			count: 5
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\CompactVendorCommand\\:\\:getThemePath\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\CompactVendorCommand\\:\\:getThemePath\\(\\) has parameter \\$kernel with no typehint specified\\.$#"
+			count: 1
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\CompactVendorCommand\\:\\:getThemePath\\(\\) has parameter \\$type with no typehint specified\\.$#"
+			count: 1
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$helper FormatterHelper\\)\\: Unexpected token \"\\$helper\", expected type at offset 9$#"
+			count: 5
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$kernel Kernel\\)\\: Unexpected token \"\\$kernel\", expected type at offset 9$#"
+			count: 5
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$command of class Symfony\\\\Component\\\\Process\\\\Process constructor expects array, string given\\.$#"
+			count: 7
+			path: Command/CompactVendorCommand.php
+
+		-
+			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Command\\\\FetchVendorCommand\\:\\:getContainer\\(\\)\\.$#"
+			count: 2
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Console\\\\Helper\\\\HelperInterface\\:\\:formatSection\\(\\)\\.$#"
+			count: 3
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Symfony\\\\Component\\\\Console\\\\Helper\\\\HelperSet\\|null\\.$#"
+			count: 1
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$helper FormatterHelper\\)\\: Unexpected token \"\\$helper\", expected type at offset 9$#"
+			count: 1
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$kernel Kernel\\)\\: Unexpected token \"\\$kernel\", expected type at offset 9$#"
+			count: 1
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$command of class Symfony\\\\Component\\\\Process\\\\Process constructor expects array, string given\\.$#"
+			count: 1
+			path: Command/FetchVendorCommand.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$public\\.$#"
+			count: 2
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$theme\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:getContainer\\(\\)\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Call to static method create\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:establishLink\\(\\) has parameter \\$expectedMethod with no typehint specified\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:establishLink\\(\\) has parameter \\$originDir with no typehint specified\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:establishLink\\(\\) has parameter \\$targetDir with no typehint specified\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:getVendorDir\\(\\) should return string but returns array\\<string\\>\\|bool\\|string\\|null\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:symlink\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$expectedMethod\\)\\: Unexpected token \"\\$expectedMethod\", expected type at offset 71$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$originDir\\)\\: Unexpected token \"\\$originDir\", expected type at offset 19$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$targetDir\\)\\: Unexpected token \"\\$targetDir\", expected type at offset 45$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of function dirname expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Parameter \\#3 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: Command/InitializeCommand.php
+
+		-
+			message: "#^Call to method getComposer\\(\\) on an unknown class Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Call to method getIO\\(\\) on an unknown class Composer\\\\Script\\\\Event\\.$#"
+			count: 4
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:executeCommand\\(\\) has parameter \\$cmd with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:executeCommand\\(\\) has parameter \\$consoleDir with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:executeCommand\\(\\) has parameter \\$timeout with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:getPhp\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:getPhp\\(\\) has parameter \\$includeArgs with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:hasDirectory\\(\\) has parameter \\$actionName with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:hasDirectory\\(\\) has parameter \\$configName with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:hasDirectory\\(\\) has parameter \\$path with no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$event with type Avanzu\\\\AdminThemeBundle\\\\Composer\\\\CommandEvent is not subtype of native type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$event CommandEvent A instance\\)\\: Unexpected token \"\\$event\", expected type at offset 63$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$command of class Symfony\\\\Component\\\\Process\\\\Process constructor expects array, string given\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:executeCommand\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:fetchThemeVendors\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:getConsoleDir\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Composer\\\\CommandEvent\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:getConsoleDir\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:getOptions\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:hasDirectory\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:\\$options has no typehint specified\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\AvanzuAdminThemeExtension\\:\\:prepend\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/AvanzuAdminThemeExtension.php
+
+		-
+			message: "#^Cannot access offset 'TwigBundle' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: DependencyInjection/Compiler/TwigPass.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Compiler\\\\TwigPass\\:\\:process\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Compiler/TwigPass.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:children\\(\\)\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createButtonChildren\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createButtonChildren\\(\\) has parameter \\$rootNodeChildren with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createSimpleChildren\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createSimpleChildren\\(\\) has parameter \\$rootNodeChildren with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createSimpleChildren\\(\\) has parameter \\$withOptions with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createThemeChildren\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createThemeChildren\\(\\) has parameter \\$rootNodeChildren with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createWidgetTree\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createWidgetTree\\(\\) has parameter \\$node with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createsubThemeChildren\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Configuration\\:\\:createsubThemeChildren\\(\\) has parameter \\$rootNodeChildren with no typehint specified\\.$#"
+			count: 1
+			path: DependencyInjection/Configuration.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:getFactory\\(\\) should return Knp\\\\Menu\\\\MenuFactory but returns Knp\\\\Menu\\\\FactoryInterface\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:getMenu\\(\\) should return Knp\\\\Menu\\\\MenuItem but returns Knp\\\\Menu\\\\ItemInterface\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Parameter \\$factory of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:__construct\\(\\) has invalid typehint type Knp\\\\Menu\\\\FactoryInterface\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Parameter \\$menu of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:__construct\\(\\) has invalid typehint type Knp\\\\Menu\\\\ItemInterface\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:\\$factory has unknown class Knp\\\\Menu\\\\FactoryInterface as its type\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:\\$menu has unknown class Knp\\\\Menu\\\\ItemInterface as its type\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:getFactory\\(\\) has invalid type Knp\\\\Menu\\\\MenuFactory\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\KnpMenuEvent\\:\\:getMenu\\(\\) has invalid type Knp\\\\Menu\\\\MenuItem\\.$#"
+			count: 1
+			path: Event/KnpMenuEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\MessageListEvent\\:\\:\\$max has no typehint specified\\.$#"
+			count: 1
+			path: Event/MessageListEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\NotificationListEvent\\:\\:setTotal\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Event/NotificationListEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\NotificationListEvent\\:\\:\\$max has no typehint specified\\.$#"
+			count: 1
+			path: Event/NotificationListEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\NotificationListEvent\\:\\:\\$total has no typehint specified\\.$#"
+			count: 1
+			path: Event/NotificationListEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\ShowUserEvent\\:\\:addLink\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Event/ShowUserEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\ShowUserEvent\\:\\:setShowLogoutLink\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Event/ShowUserEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\ShowUserEvent\\:\\:setShowProfileLink\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Event/ShowUserEvent.php
+
+		-
+			message: "#^Call to method getIdentifier\\(\\) on an unknown class Knp\\\\Menu\\\\MenuItem\\.$#"
+			count: 1
+			path: Event/SidebarMenuEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:getRootItem\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Event/SidebarMenuEvent.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$id\\)\\: Unexpected token \"\\$id\", expected type at offset 19$#"
+			count: 1
+			path: Event/SidebarMenuEvent.php
+
+		-
+			message: "#^Parameter \\$item of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:addItem\\(\\) has invalid typehint type Knp\\\\Menu\\\\MenuItem\\.$#"
+			count: 1
+			path: Event/SidebarMenuEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\TaskListEvent\\:\\:\\$max has no typehint specified\\.$#"
+			count: 1
+			path: Event/TaskListEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\TaskListEvent\\:\\:\\$tasks has no typehint specified\\.$#"
+			count: 1
+			path: Event/TaskListEvent.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\TaskListEvent\\:\\:\\$total has no typehint specified\\.$#"
+			count: 1
+			path: Event/TaskListEvent.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:__construct\\(\\) has parameter \\$container with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:getUser\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:onController\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:onRequest\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:\\$container has no typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\ContextListener\\:\\:\\$indicator has no typehint specified\\.$#"
+			count: 1
+			path: EventListener/ContextListener.php
+
+		-
+			message: "#^Call to method addChild\\(\\) on an unknown class Knp\\\\Menu\\\\MenuItem\\.$#"
+			count: 3
+			path: EventListener/DemoKnpMenuListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\DemoKnpMenuListener\\:\\:onSetupKnpMenu\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/DemoKnpMenuListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarMessageListDemoListener\\:\\:getMessages\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarMessageListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarMessageListDemoListener\\:\\:onListMessages\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarMessageListDemoListener.php
+
+		-
+			message: "#^Parameter \\#3 \\$sentAt of class Avanzu\\\\AdminThemeBundle\\\\Model\\\\MessageModel constructor expects null, DateTime given\\.$#"
+			count: 2
+			path: EventListener/NavbarMessageListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarNotificationListDemoListener\\:\\:getNotifications\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarNotificationListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarNotificationListDemoListener\\:\\:onListNotifications\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarNotificationListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarShowUserDemoListener\\:\\:onShowUser\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarShowUserDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarTaskListDemoListener\\:\\:getTasks\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarTaskListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\NavbarTaskListDemoListener\\:\\:onListTasks\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/NavbarTaskListDemoListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$title of class Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskModel constructor expects null, string given\\.$#"
+			count: 3
+			path: EventListener/NavbarTaskListDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:__construct\\(\\) has parameter \\$cssBase with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:__construct\\(\\) has parameter \\$lteAdmin with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:__construct\\(\\) has parameter \\$manager with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:onKernelController\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:\\$cssBase has no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SetupThemeListener\\:\\:\\$lteAdmin has no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SetupThemeListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:activateByRoute\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/SidebarSetupMenuDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:activateByRoute\\(\\) has parameter \\$items with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SidebarSetupMenuDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:activateByRoute\\(\\) has parameter \\$route with no typehint specified\\.$#"
+			count: 1
+			path: EventListener/SidebarSetupMenuDemoListener.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\EventListener\\\\SidebarSetupMenuDemoListener\\:\\:getMenu\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: EventListener/SidebarSetupMenuDemoListener.php
+
+		-
+			message: "#^Call to method createItem\\(\\) on an unknown class Knp\\\\Menu\\\\FactoryInterface\\.$#"
+			count: 1
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Menu\\\\MenuBuilder\\:\\:createMainMenu\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Method Symfony\\\\Contracts\\\\EventDispatcher\\\\EventDispatcherInterface\\:\\:dispatch\\(\\) invoked with 2 parameters, 1 required\\.$#"
+			count: 1
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$event of method Symfony\\\\Contracts\\\\EventDispatcher\\\\EventDispatcherInterface\\:\\:dispatch\\(\\) expects object, string given\\.$#"
+			count: 1
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Parameter \\$factory of method Avanzu\\\\AdminThemeBundle\\\\Menu\\\\MenuBuilder\\:\\:__construct\\(\\) has invalid typehint type Knp\\\\Menu\\\\FactoryInterface\\.$#"
+			count: 2
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Menu\\\\MenuBuilder\\:\\:\\$factory has unknown class Knp\\\\Menu\\\\FactoryInterface as its type\\.$#"
+			count: 1
+			path: Menu/MenuBuilder.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setDate\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setEmail\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setGender\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setMessage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setPrice\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setSomeChoices\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setSomeOption\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setTermsAccepted\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setTime\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\FormDemoModel\\:\\:setUsername\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/FormDemoModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\:\\:setIsActive\\(\\) has parameter \\$isActive with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemInterface.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$isActive\\)\\: Unexpected token \"\\$isActive\", expected type at offset 19$#"
+			count: 1
+			path: Model/MenuItemInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$badge with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$badgeColor with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$icon with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$route with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$routeArgs with no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:setChildren\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:\\$badgeColor has no typehint specified\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:\\$parent \\(Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\) does not accept Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\|null\\.$#"
+			count: 1
+			path: Model/MenuItemModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MessageModel\\:\\:\\$from \\(Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\) does not accept Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\|null\\.$#"
+			count: 1
+			path: Model/MessageModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MessageModel\\:\\:\\$to \\(Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\) does not accept Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\|null\\.$#"
+			count: 1
+			path: Model/MessageModel.php
+
+		-
+			message: "#^Ternary operator condition is always false\\.$#"
+			count: 1
+			path: Model/MessageModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:__construct\\(\\) has parameter \\$parameters with no typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:__construct\\(\\) has parameter \\$path with no typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:__construct\\(\\) has parameter \\$title with no typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:setParameters\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:setPath\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:setTitle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$parameters\\)\\: Unexpected token \"\\$parameters\", expected type at offset 106$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$path\\)\\: Unexpected token \"\\$path\", expected type at offset 85$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$title\\)\\: Unexpected token \"\\$title\", expected type at offset 63$#"
+			count: 1
+			path: Model/NavBarUserLink.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationInterface\\:\\:getIcon\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationInterface\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationInterface\\:\\:getMessage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationInterface\\:\\:getType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:__construct\\(\\) has parameter \\$icon with no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:__construct\\(\\) has parameter \\$message with no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:__construct\\(\\) has parameter \\$type with no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:\\$icon has no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:\\$message has no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\NotificationModel\\:\\:\\$type has no typehint specified\\.$#"
+			count: 1
+			path: Model/NotificationModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskInterface\\:\\:getColor\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/TaskInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskInterface\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/TaskInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskInterface\\:\\:getProgress\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/TaskInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskInterface\\:\\:getTitle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/TaskInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\TaskModel\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/TaskModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getAvatar\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getMemberSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getTitle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:getUsername\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\:\\:isOnline\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserInterface.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$avatar with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$isOnline with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$memberSince with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$title with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:__construct\\(\\) has parameter \\$username with no typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserModel\\:\\:getIdentifier\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Model/UserModel.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with array will always evaluate to false\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Call to method getRouteCollection\\(\\) on an unknown class Symfony\\\\Component\\\\Routing\\\\RouterInterface\\.$#"
+			count: 2
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Call to method hasOption\\(\\) on an unknown class Symfony\\\\Component\\\\Routing\\\\Route\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has parameter \\$cacheDir with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has parameter \\$debug with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has parameter \\$env with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has parameter \\$optionName with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:getRouteByAlias\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:hasAlias\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$cacheDir\\)\\: Unexpected token \"\\$cacheDir\", expected type at offset 85$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$debug\\)\\: Unexpected token \"\\$debug\", expected type at offset 244$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$env\\)\\: Unexpected token \"\\$env\", expected type at offset 208$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 19$#"
+			count: 2
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$optionName\\)\\: Unexpected token \"\\$optionName\", expected type at offset 165$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Parameter \\$route of method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:hasConfiguredOption\\(\\) has invalid typehint type Symfony\\\\Component\\\\Routing\\\\Route\\.$#"
+			count: 2
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Parameter \\$router of method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has invalid typehint type Symfony\\\\Component\\\\Routing\\\\RouterInterface\\.$#"
+			count: 2
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:\\$router has unknown class Symfony\\\\Component\\\\Routing\\\\RouterInterface as its type\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: Routing/RouteAliasCollection.php
+
+		-
+			message: "#^Call to method register\\(\\) on an unknown class Avanzu\\\\FoundationBundle\\\\Util\\\\DependencyResolverInterface\\.$#"
+			count: 2
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:__construct\\(\\) has parameter \\$container with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:__construct\\(\\) has parameter \\$resolverClass with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getLocator\\(\\) should return Symfony\\\\Component\\\\HttpKernel\\\\Config\\\\FileLocator but returns object\\|null\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getScripts\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getScripts\\(\\) has parameter \\$location with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getStyles\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerScript\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerScript\\(\\) has parameter \\$deps with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerScript\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerScript\\(\\) has parameter \\$location with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerScript\\(\\) has parameter \\$src with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerStyle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerStyle\\(\\) has parameter \\$deps with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerStyle\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:registerStyle\\(\\) has parameter \\$src with no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:\\$javascripts has no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:\\$locations has no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:\\$resolverClass has no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:\\$stylesheets has no typehint specified\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Return typehint of method Avanzu\\\\AdminThemeBundle\\\\Theme\\\\ThemeManager\\:\\:getResolver\\(\\) has invalid type Avanzu\\\\FoundationBundle\\\\Util\\\\DependencyResolverInterface\\.$#"
+			count: 1
+			path: Theme/ThemeManager.php
+
+		-
+			message: "#^Argument of an invalid type null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with null will always evaluate to false\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:contains\\(\\) has parameter \\$haystackId with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:contains\\(\\) has parameter \\$needle with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:failOnCircularDependencies\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:getDependencies\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:hasDependencies\\(\\) has parameter \\$id with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:register\\(\\) has parameter \\$items with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:resolve\\(\\) has parameter \\$ids with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolver\\:\\:unresolved\\(\\) has parameter \\$deps with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$deps\\)\\: Unexpected token \"\\$deps\", expected type at offset 19$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$haystackId\\)\\: Unexpected token \"\\$haystackId\", expected type at offset 42$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$id\\)\\: Unexpected token \"\\$id\", expected type at offset 19$#"
+			count: 2
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$ids\\)\\: Unexpected token \"\\$ids\", expected type at offset 19$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$items\\)\\: Unexpected token \"\\$items\", expected type at offset 19$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$needle\\)\\: Unexpected token \"\\$needle\", expected type at offset 19$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: Util/DependencyResolver.php
+
+		-
+			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolverInterface\\:\\:register\\(\\) has parameter \\$items with no typehint specified\\.$#"
+			count: 1
+			path: Util/DependencyResolverInterface.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$items\\)\\: Unexpected token \"\\$items\", expected type at offset 19$#"
+			count: 1
+			path: Util/DependencyResolverInterface.php
+

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Avanzu\AdminThemeBundle;
 
 use Avanzu\AdminThemeBundle\DependencyInjection\Compiler\TwigPass;

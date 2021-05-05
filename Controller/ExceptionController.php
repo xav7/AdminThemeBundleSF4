@@ -9,25 +9,21 @@ namespace Avanzu\AdminThemeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Controller\ErrorController;
 
-class ExceptionController extends \Symfony\Bundle\TwigBundle\Controller\ExceptionController
+class ExceptionController extends ErrorController
 {
     /**
-     * @param Request $request
-     * @param string  $format
-     * @param int     $code
-     * @param bool    $debug
-     *
      * @return TemplateReference
      */
-    protected function findTemplate(Request $request, $format, $code, $debug)
+    protected function findTemplate(Request $request, string $format, int $code, bool $debug)
     {
         if(strpos($request->getPathInfo(), '/admin') !== 0) {
             return parent::findTemplate($request, $format, $code, $debug);
         }
 
         $name = $debug ? 'exception' : 'error';
-        if ($debug && 'html' == $format) {
+        if ($debug && 'html' === $format) {
             $name = 'exception_full';
         }
 

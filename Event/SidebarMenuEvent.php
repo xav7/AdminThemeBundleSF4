@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * SidebarMenuEvent.php
  * avanzu-admin
@@ -18,33 +20,21 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SidebarMenuEvent extends ThemeEvent
 {
-    /**
-     * @var array
-     */
-    protected $menuRootItems = [];
+    protected array   $menuRootItems = [];
 
-    /**
-     * @var Request
-     */
-    protected $request;
+    protected Request $request;
 
-    public function __construct($request = null)
+    public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
-    public function getRequest()
+    public function getRequest(): Request
     {
         return $this->request;
     }
 
-    /**
-     * @return array
-     */
-    public function getItems()
+    public function getItems(): array
     {
         return $this->menuRootItems;
     }
@@ -52,7 +42,7 @@ class SidebarMenuEvent extends ThemeEvent
     /**
      * @param MenuItemInterface|MenuItem $item
      */
-    public function addItem($item)
+    public function addItem($item): void
     {
         $this->menuRootItems[$item->getIdentifier()] = $item;
     }
@@ -64,15 +54,16 @@ class SidebarMenuEvent extends ThemeEvent
      */
     public function getRootItem($id)
     {
-        return isset($this->menuRootItems[$id]) ? $this->menuRootItems[$id] : null;
+        return $this->menuRootItems[$id] ?? null;
     }
 
-    /**
-     * @return MenuItemInterface|null
-     */
-    public function getActive() {
-        foreach($this->getItems() as $item) { /** @var $item MenuItemInterface */
-            if($item->isActive()) return $item;
+    public function getActive(): ?MenuItemInterface
+    {
+        foreach ($this->getItems() as $item) {
+            /** @var MenuItemInterface $item */
+            if ($item->isActive()) {
+                return $item;
+            }
         }
 
         return null;
