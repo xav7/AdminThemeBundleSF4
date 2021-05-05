@@ -696,11 +696,6 @@ parameters:
 			path: Event/SidebarMenuEvent.php
 
 		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:__construct\\(\\) has parameter \\$request with no typehint specified\\.$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:getRootItem\\(\\) has parameter \\$id with no typehint specified\\.$#"
 			count: 1
 			path: Event/SidebarMenuEvent.php

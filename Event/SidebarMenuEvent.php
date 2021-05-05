@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * SidebarMenuEvent.php
  * avanzu-admin
@@ -18,16 +20,16 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SidebarMenuEvent extends ThemeEvent
 {
-    protected array    $menuRootItems = [];
+    protected array   $menuRootItems = [];
 
-    protected ?Request $request;
+    protected Request $request;
 
-    public function __construct($request = null)
+    public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
-    public function getRequest(): ?Request
+    public function getRequest(): Request
     {
         return $this->request;
     }
