@@ -1,16 +1,15 @@
 <?php
-/**
- * TwigPass.php
- * avanzu-admin-2
- * Date: 29.12.15
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
+use Symfony\Component\DependencyInjection\Reference;
+
+use function is_array;
 
 /**
  * Class TwigPass
@@ -19,22 +18,18 @@ class TwigPass implements CompilerPassInterface
 {
     /**
      * You can modify the container here before it is dumped to PHP code.
-     *
-     * @param ContainerBuilder $container
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
+        /** @var array<string, string> $bundles */
         $bundles = $container->getParameter('kernel.bundles');
 
-        try
-        {
-            if(true !== $container->getParameter('avanzu_admin_theme.use_twig')) {
+        try {
+            if (true !== $container->getParameter('avanzu_admin_theme.use_twig')) {
                 return;
             }
-        }
-        // Parameter avanzu_admin_theme.use_twig not found in config
-        catch(ParameterNotFoundException $e)
-        {
+        } // Parameter avanzu_admin_theme.use_twig not found in config
+        catch (ParameterNotFoundException $e) {
             return;
         }
 
@@ -44,17 +39,20 @@ class TwigPass implements CompilerPassInterface
 
         $param = $container->getParameter('twig.form.resources');
 
-        if(!is_array($param)) {
+        if (!is_array($param)) {
             $param = [];
         }
 
-        array_push($param, '@AvanzuAdminTheme/layout/form-theme.html.twig');
+        /** @var array $param */
+        $param[] = '@AvanzuAdminTheme/layout/form-theme.html.twig';
 
         $container->setParameter('twig.form.resources', $param);
 
         $twigDefinition = $container->getDefinition('twig');
 
-        $twigDefinition->addMethodCall('addGlobal', [
+        $twigDefinition->addMethodCall(
+            'addGlobal',
+            [
                 'avanzu_admin_context',
                 new Reference('avanzu_admin_theme.context_helper'),
             ]

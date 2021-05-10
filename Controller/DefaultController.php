@@ -1,53 +1,73 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Form\FormDemoModelType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Forms;
+use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
-/**
- * Class DefaultController
- *
- * @package Avanzu\AdminThemeBundle\Controller
- */
-class DefaultController extends AbstractController
+class DefaultController
 {
+    private Environment $twig;
+
+    public function __construct(Environment $twig)
+    {
+        $this->twig = $twig;
+    }
+
     /**
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(): Response
     {
-        return $this->render('@AvanzuAdminTheme/Default/index.html.twig');
+        $html = $this->twig->render('@AvanzuAdminTheme/Default/index.html.twig');
+
+        return new Response($html);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function dashboardAction() {
-        return $this->render('@AvanzuAdminTheme/Default/index.html.twig');
+    public function dashboardAction(): Response
+    {
+        $html = $this->twig->render('@AvanzuAdminTheme/Default/index.html.twig');
+
+        return new Response($html);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function uiGeneralAction() {
-        return $this->render('@AvanzuAdminTheme/Default/index.html.twig');
+    public function uiGeneralAction(): Response
+    {
+        $html = $this->twig->render('@AvanzuAdminTheme/Default/index.html.twig');
+
+        return new Response($html);
     }
 
-    public function uiIconsAction() {
-        return $this->render('@AvanzuAdminTheme/Default/index.html.twig');
+    public function uiIconsAction(): Response
+    {
+        $html = $this->twig->render('@AvanzuAdminTheme/Default/index.html.twig');
+
+        return new Response($html);
     }
 
-    public function formAction() {
-        $form = $this->createForm(FormDemoModelType::class);
+    public function formAction(): Response
+    {
+        $formFactory = Forms::createFormFactory();
 
-        return $this->render('@AvanzuAdminTheme/Default/form.html.twig', [
+        $form = $formFactory->create(FormDemoModelType::class);
+        $html = $this->twig->render(
+            '@AvanzuAdminTheme/Default/form.html.twig',
+            [
                 'form' => $form->createView(),
-            ]);
+            ]
+        );
+
+        return new Response($html);
     }
 
-    public function loginAction() {
-        return $this->render('@AvanzuAdminTheme/Default/login.html.twig');
+    public function loginAction(): Response
+    {
+        $html = $this->twig->render('@AvanzuAdminTheme/Default/login.html.twig');
+
+        return new Response($html);
     }
 }

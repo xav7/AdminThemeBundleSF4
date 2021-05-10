@@ -1,41 +1,43 @@
 <?php
-/**
- * SecurityController.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Security;
+use Twig\Environment;
 
-class SecurityController extends AbstractController
+class SecurityController
 {
-    /**
-     * @param Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function loginAction(Request $request)
+    private Environment $twig;
+
+    public function __construct(Environment $twig)
+    {
+        $this->twig = $twig;
+    }
+
+    public function loginAction(Request $request): Response
     {
         $session = $request->getSession();
 
         // get the login error if there is one
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(Security::AUTHENTICATION_ERROR);
         } else {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+            $error = $session->get(Security::AUTHENTICATION_ERROR);
+            $session->remove(Security::AUTHENTICATION_ERROR);
         }
 
-        return $this->render(
-                    '@AvanzuAdminTheme/Security/login.html.twig',
-                        [
-                            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
-                            'error' => $error,
-                        ]
+        $html = $this->twig->render(
+            '@AvanzuAdminTheme/Security/login.html.twig',
+            [
+                'last_username' => $session->get(Security::LAST_USERNAME),
+                'error'         => $error,
+            ]
         );
+
+        return new Response($html);
     }
 }

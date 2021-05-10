@@ -1,28 +1,17 @@
 <?php
 
 declare(strict_types=1);
-/**
- * SidebarMenuEvent.php
- * avanzu-admin
- * Date: 23.02.14
- */
 
 namespace Avanzu\AdminThemeBundle\Event;
 
 use Avanzu\AdminThemeBundle\Model\MenuItemInterface;
-use Knp\Menu\MenuItem;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Class SidebarMenuEvent
- *
- * @package Avanzu\AdminThemeBundle\Event
- */
 class SidebarMenuEvent extends ThemeEvent
 {
-    protected array   $menuRootItems = [];
+    private array   $menuRootItems = [];
 
-    protected Request $request;
+    private Request $request;
 
     public function __construct(Request $request)
     {
@@ -39,20 +28,12 @@ class SidebarMenuEvent extends ThemeEvent
         return $this->menuRootItems;
     }
 
-    /**
-     * @param MenuItemInterface|MenuItem $item
-     */
-    public function addItem($item): void
+    public function addItem(MenuItemInterface $item): void
     {
         $this->menuRootItems[$item->getIdentifier()] = $item;
     }
 
-    /**
-     * @param $id
-     *
-     * @return null
-     */
-    public function getRootItem($id)
+    public function getRootItem(string $id): ?MenuItemInterface
     {
         return $this->menuRootItems[$id] ?? null;
     }

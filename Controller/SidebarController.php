@@ -1,19 +1,14 @@
 <?php
 
 declare(strict_types=1);
-/**
- * SidebarController.php
- * avanzu-admin
- * Date: 23.02.14
- */
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Avanzu\AdminThemeBundle\Event\SidebarMenuEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 
 class SidebarController
@@ -37,7 +32,9 @@ class SidebarController
             return new Response();
         }
 
-        $userEvent = $this->eventDispatcher->dispatch(new ShowUserEvent());
+        $userEvent = new ShowUserEvent();
+
+        $this->eventDispatcher->dispatch($userEvent);
 
         $content = $this->twig->render(
             '@AvanzuAdminTheme/Sidebar/user-panel.html.twig',
@@ -60,7 +57,9 @@ class SidebarController
             return new Response();
         }
 
-        $event = $this->eventDispatcher->dispatch(new SidebarMenuEvent($request));
+        $event = new SidebarMenuEvent($request);
+
+        $this->eventDispatcher->dispatch($event);
 
         $content = $this->twig->render(
             '@AvanzuAdminTheme/Sidebar/menu.html.twig',
