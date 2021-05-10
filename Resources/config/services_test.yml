@@ -10,5 +10,3 @@ services:
   Twig\Loader\FilesystemLoader: ~
 
   Twig\Loader\LoaderInterface: '@Twig\Loader\FilesystemLoader'
-#  Twig\Loader\:
-#    resource: '../../Controller'
