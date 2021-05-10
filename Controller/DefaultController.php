@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Form\FormDemoModelType;
-use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 class DefaultController
 {
-    private Environment   $twig;
+    private Environment $twig;
 
-    private FormInterface $form;
+    private Form        $form;
 
-    public function __construct(Environment $twig, FormInterface $form)
+    public function __construct(Environment $twig, Form $form)
     {
         $this->twig = $twig;
         $this->form = $form;
