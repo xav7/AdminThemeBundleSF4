@@ -6,6 +6,7 @@ parameters:
    paths:
        - Command
        - Composer
+       - Controller
        - DependencyInjection
        - Event
        - EventListener
@@ -20,3 +21,6 @@ parameters:
                - vendor
    checkMissingIterableValueType: false
    checkGenericClassInNonGenericObjectType: false
+
+   ignoreErrors:
+       - '~^Method Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface::dispatch\(\) invoked with 2 parameters, 1 required\.\z~'

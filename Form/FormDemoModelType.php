@@ -1,12 +1,10 @@
 <?php
-/**
- * FormDemoModelType.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Form;
 
+use Avanzu\AdminThemeBundle\Model\FormDemoModel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -19,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormDemoModelType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $options = [
             'This is option 1' => 'opt1',
@@ -34,32 +32,31 @@ class FormDemoModelType extends AbstractType
         ];
 
         $builder->add('name', TextType::class, ['help' => 'some help text'])
-                ->add('gender', ChoiceType::class, ['choices' => ['male' => 'm', 'female' => 'f']])
-                ->add('someOption', ChoiceType::class, ['choices' => $options, 'expanded' => true])
-                ->add('someChoices', ChoiceType::class, ['choices' => $choices, 'expanded' => true, 'multiple' => true])
-                ->add('username')
-                ->add('email')
-                ->add('termsAccepted', CheckboxType::class)
-                ->add('message', TextareaType::class)
-                ->add('price')
-                ->add('date', DateType::class, ['widget' => 'single_text', 'html5' => false])
-                ->add('time', TimeType::class, ['widget' => 'single_text', 'html5' => false])
-        ;
+            ->add('gender', ChoiceType::class, ['choices' => ['male' => 'm', 'female' => 'f']])
+            ->add('someOption', ChoiceType::class, ['choices' => $options, 'expanded' => true])
+            ->add('someChoices', ChoiceType::class, ['choices' => $choices, 'expanded' => true, 'multiple' => true])
+            ->add('username')
+            ->add('email')
+            ->add('termsAccepted', CheckboxType::class)
+            ->add('message', TextareaType::class)
+            ->add('price')
+            ->add('date', DateType::class, ['widget' => 'single_text', 'html5' => false])
+            ->add('time', TimeType::class, ['widget' => 'single_text', 'html5' => false]);
     }
 
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-                'data_class' => 'Avanzu\AdminThemeBundle\Model\FormDemoModel',
-            ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => FormDemoModel::class,
+            ]
+        );
     }
 
     /**
      * Returns the name of this type.
-     *
-     * @return string The name of this type
      */
-    public function getName()
+    public function getName(): string
     {
         return 'form_demo';
     }

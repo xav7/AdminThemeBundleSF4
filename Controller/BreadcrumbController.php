@@ -1,65 +1,66 @@
 <?php
-/**
- * BreadcrumbController.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Event\SidebarMenuEvent;
 use Avanzu\AdminThemeBundle\Event\ThemeEvents;
-use Avanzu\AdminThemeBundle\Model\MenuItemInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
 /**
  * Controller to handle breadcrumb display inside the layout
- *
  */
-class BreadcrumbController extends AbstractController
+class BreadcrumbController
 {
+    private Environment              $twig;
+
+    private EventDispatcherInterface $eventDispatcher;
+
+    public function __construct(Environment $twig, EventDispatcherInterface $eventDispatcher)
+    {
+        $this->twig            = $twig;
+        $this->eventDispatcher = $eventDispatcher;
+    }
+
     /**
      * Controller Reference action to be called inside the layout.
      *
      * Triggers the {@link ThemeEvents::THEME_BREADCRUMB} to receive the currently active menu chain.
      *
      * If there are no listeners attached for this event, the return value is an empty response.
-     *
-     * @param Request $request
-     * @param string  $title
-     *
-     * @return Response
-     *
      */
-    public function breadcrumbAction(Request $request, $title = '') {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_BREADCRUMB)) {
+    public function breadcrumbAction(Request $request, string $title = ''): Response
+    {
+        if (!$this->eventDispatcher->hasListeners(ThemeEvents::THEME_BREADCRUMB)) {
             return new Response();
         }
 
-        $active = $this->getDispatcher()->dispatch(ThemeEvents::THEME_BREADCRUMB, new SidebarMenuEvent($request))->getActive();
-        /** @var $active MenuItemInterface */
-        $list = [];
-        if($active) {
+        $sidebarMenuEvent = new SidebarMenuEvent($request);
+        $active           = $sidebarMenuEvent->getActive();
+        $list             = [];
+
+        $this->eventDispatcher->dispatch($sidebarMenuEvent, ThemeEvents::THEME_BREADCRUMB);
+
+        if ($active) {
             $list[] = $active;
-            while(null !== ($item = $active->getActiveChild())) {
+            while (null !== ($item = $active->getActiveChild())) {
                 $list[] = $item;
                 $active = $item;
             }
         }
 
-        return $this->render('@AvanzuAdminTheme/Breadcrumb/breadcrumb.html.twig', [
+        $html = $this->twig->render(
+            '@AvanzuAdminTheme/Breadcrumb/breadcrumb.html.twig',
+            [
                 'active' => $list,
-                'title' => $title,
-            ]);
-    }
+                'title'  => $title,
+            ]
+        );
 
-    /**
-     * @return EventDispatcher
-     */
-    protected function getDispatcher()
-    {
-        return $this->get('event_dispatcher');
+        return new Response($html);
     }
 }

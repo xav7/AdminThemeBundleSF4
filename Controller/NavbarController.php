@@ -1,9 +1,6 @@
 <?php
-/**
- * NavbarController.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
@@ -12,88 +9,77 @@ use Avanzu\AdminThemeBundle\Event\NotificationListEvent;
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Avanzu\AdminThemeBundle\Event\TaskListEvent;
 use Avanzu\AdminThemeBundle\Event\ThemeEvents;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
 {
-    const MAX_NOTIFICATIONS = 5;
-    const MAX_MESSAGES      = 5;
-    const MAX_TASKS         = 5;
+    private const MAX_NOTIFICATIONS = 5;
+    private const MAX_MESSAGES      = 5;
+    private const MAX_TASKS         = 5;
 
-    /**
-     * @return EventDispatcher
-     */
-    protected function getDispatcher()
-    {
-        return $this->get('event_dispatcher');
-    }
-
-    public function notificationsAction($max = self::MAX_NOTIFICATIONS)
+    public function notificationsAction(int $max = self::MAX_NOTIFICATIONS): Response
     {
         if (!$this->getDispatcher()->hasListeners(NotificationListEvent::class)) {
             return new Response();
         }
 
-        $listEvent = $this->getDispatcher()->dispatch(new NotificationListEvent());
+        $listEvent = new NotificationListEvent();
 
-        return $this->render(
+        $this->getDispatcher()->dispatch($listEvent);
+
+        $html = $this->getTwig()->render(
             '@AvanzuAdminTheme/Navbar/notifications.html.twig',
             [
                 'notifications' => $listEvent->getNotifications(),
                 'total'         => $listEvent->getTotal(),
             ]
         );
+
+        return new Response($html);
     }
 
-    /**
-     * @param int $max
-     *
-     * @return Response
-     */
-    public function messagesAction($max = self::MAX_MESSAGES)
+    public function messagesAction(int $max = self::MAX_MESSAGES): Response
     {
         if (!$this->getDispatcher()->hasListeners(MessageListEvent::class)) {
             return new Response();
         }
 
-        $listEvent = $this->getDispatcher()->dispatch(new MessageListEvent());
+        $listEvent = new MessageListEvent();
 
-        return $this->render(
+        $this->getDispatcher()->dispatch($listEvent);
+
+        $html = $this->getTwig()->render(
             '@AvanzuAdminTheme/Navbar/messages.html.twig',
             [
                 'messages' => $listEvent->getMessages(),
                 'total'    => $listEvent->getTotal(),
             ]
         );
+
+        return new Response($html);
     }
 
-    /**
-     * @param int $max
-     *
-     * @return Response
-     */
-    public function tasksAction($max = self::MAX_TASKS)
+    public function tasksAction(int $max = self::MAX_TASKS): Response
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_TASKS)) {
             return new Response();
         }
 
+        /** @var TaskListEvent $listEvent */
         $listEvent = $this->triggerMethod(ThemeEvents::THEME_TASKS, new TaskListEvent($max));
 
-        return $this->render(
+        $html = $this->getTwig()->render(
             '@AvanzuAdminTheme/Navbar/tasks.html.twig',
             [
                 'tasks' => $listEvent->getTasks(),
                 'total' => $listEvent->getTotal(),
             ]
         );
+
+        return new Response($html);
     }
 
-    /**
-     * @return Response
-     */
-    public function userAction()
+    public function userAction(): Response
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_NAVBAR_USER)) {
             return new Response();
@@ -102,18 +88,20 @@ class NavbarController extends EmitterController
         /** @var ShowUserEvent $userEvent */
         $userEvent = $this->triggerMethod(ThemeEvents::THEME_NAVBAR_USER, new ShowUserEvent());
 
-        if ($userEvent instanceof ShowUserEvent) {
-            return $this->render(
-                '@AvanzuAdminTheme/Navbar/user.html.twig',
-                [
-                    'user'            => $userEvent->getUser(),
-                    'links'           => $userEvent->getLinks(),
-                    'showProfileLink' => $userEvent->isShowProfileLink(),
-                    'showLogoutLink'  => $userEvent->isShowLogoutLink(),
-                ]
-            );
+        if (!$userEvent instanceof ShowUserEvent) {
+            return new Response();
         }
 
-        return new Response();
+        $html = $this->getTwig()->render(
+            '@AvanzuAdminTheme/Navbar/user.html.twig',
+            [
+                'user'            => $userEvent->getUser(),
+                'links'           => $userEvent->getLinks(),
+                'showProfileLink' => $userEvent->isShowProfileLink(),
+                'showLogoutLink'  => $userEvent->isShowLogoutLink(),
+            ]
+        );
+
+        return new Response($html);
     }
 }

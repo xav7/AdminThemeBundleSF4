@@ -1,6 +1,4 @@
 parameters:
-  avanzu_admin_theme.exception_controller.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
-  twig.controller.exception.class: Avanzu\AdminThemeBundle\Controller\ExceptionController
   avanzu_admin_theme.extension.class: Avanzu\AdminThemeBundle\Twig\AvanzuAdminExtension
   avanzu_admin_theme.context_helper.class: Avanzu\AdminThemeBundle\Helper\ContextHelper
   avanzu_admin_theme.admin_router.class: Avanzu\AdminThemeBundle\Routing\RouteAliasCollection
@@ -27,10 +25,6 @@ services:
       - "%kernel.environment%"
       - "%kernel.debug%"
 
-  avanzu_admin_theme.exception_controller:
-    class: "%avanzu_admin_theme.exception_controller.class%"
-    arguments: [ '@twig', '%kernel.debug%' ]
-
   avanzu_admin_theme.extension.class:
     class: "%avanzu_admin_theme.extension.class%"
     tags:
@@ -49,5 +43,4 @@ services:
 
   Avanzu\AdminThemeBundle\Controller\:
     resource: '../../Controller'
-    exclude: '../../Controller/ExceptionController.php'
-    tags: ['controller.service_arguments']
+    tags: [ 'controller.service_arguments' ]

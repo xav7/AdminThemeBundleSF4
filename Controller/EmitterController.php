@@ -1,34 +1,36 @@
 <?php
-/**
- * EmitterController.php
- * symfony3
- * Date: 13.06.16
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\EventDispatcher\Event;
+use Twig\Environment;
 
-class EmitterController extends AbstractController
+use function is_callable;
+
+class EmitterController
 {
-    /**
-     * @return \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher|\Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
-     */
-    protected function getDispatcher()
+    private Environment              $twig;
+
+    private EventDispatcherInterface $eventDispatcher;
+
+    public function __construct(Environment $twig, EventDispatcherInterface $eventDispatcher)
     {
-        return $this->get('event_dispatcher');
+        $this->twig            = $twig;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
-    /**
-     * @param $eventName
-     *
-     * @return bool
-     */
-    protected function hasListener($eventName)
+    public function hasListener(string $eventName): bool
     {
-        return $this->getDispatcher()->hasListeners($eventName);
+        return $this->eventDispatcher->hasListeners($eventName);
+    }
+
+    public function getDispatcher(): EventDispatcherInterface
+    {
+        return $this->eventDispatcher;
     }
 
     /**
@@ -36,26 +38,26 @@ class EmitterController extends AbstractController
      *
      *
      * Then it will dispatch the event as normal via the event dispatcher.
-     *
-     * @param       $eventName
-     * @param Event $event
-     *
-     * @return Event
      */
-    protected function triggerMethod($eventName, Event $event)
+    public function triggerMethod(string $eventName, Event $event): Event
     {
         $method = sprintf('on%s', Container::camelize(str_replace('.', '_', $eventName)));
 
         if (is_callable([$this, $method])) {
-            call_user_func_array([$this, $method], [$event]);
+            $this->$method($event);
         }
 
         if ($event->isPropagationStopped()) {
             return $event;
         }
 
-        $this->getDispatcher()->dispatch($eventName, $event);
+        $this->eventDispatcher->dispatch($event, $eventName);
 
         return $event;
+    }
+
+    public function getTwig(): Environment
+    {
+        return $this->twig;
     }
 }

@@ -41,37 +41,12 @@ parameters:
 			path: Command/BuildAssetsCommand.php
 
 		-
-			message: "#^Call to method files\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^Call to method getFilename\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
-			count: 2
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^Call to method getRealPath\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
 			message: "#^Call to method mkdir\\(\\) on an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
 			count: 1
 			path: Command/BuildAssetsCommand.php
 
 		-
-			message: "#^Instantiated class Symfony\\\\Component\\\\Finder\\\\Finder not found\\.$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
 			message: "#^Iterating over an object of an unknown class Avanzu\\\\AdminThemeBundle\\\\Command\\\\unknown\\.$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^Iterating over an object of an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
 			count: 1
 			path: Command/BuildAssetsCommand.php
 
@@ -202,11 +177,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 35$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^PHPDoc tag @var for variable \\$file contains unknown class Symfony\\\\Component\\\\Finder\\\\SplFileInfo\\.$#"
 			count: 1
 			path: Command/BuildAssetsCommand.php
 
@@ -382,11 +352,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method Avanzu\\\\AdminThemeBundle\\\\Command\\\\InitializeCommand\\:\\:getContainer\\(\\)\\.$#"
-			count: 1
-			path: Command/InitializeCommand.php
-
-		-
-			message: "#^Call to static method create\\(\\) on an unknown class Symfony\\\\Component\\\\Finder\\\\Finder\\.$#"
 			count: 1
 			path: Command/InitializeCommand.php
 
@@ -691,26 +656,6 @@ parameters:
 			path: Event/ShowUserEvent.php
 
 		-
-			message: "#^Call to method getIdentifier\\(\\) on an unknown class Knp\\\\Menu\\\\MenuItem\\.$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:getRootItem\\(\\) has parameter \\$id with no typehint specified\\.$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$id\\)\\: Unexpected token \"\\$id\", expected type at offset 19$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
-			message: "#^Parameter \\$item of method Avanzu\\\\AdminThemeBundle\\\\Event\\\\SidebarMenuEvent\\:\\:addItem\\(\\) has invalid typehint type Knp\\\\Menu\\\\MenuItem\\.$#"
-			count: 1
-			path: Event/SidebarMenuEvent.php
-
-		-
 			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Event\\\\TaskListEvent\\:\\:\\$max has no typehint specified\\.$#"
 			count: 1
 			path: Event/TaskListEvent.php
@@ -867,11 +812,6 @@ parameters:
 
 		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Menu\\\\MenuBuilder\\:\\:createMainMenu\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Menu/MenuBuilder.php
-
-		-
-			message: "#^Method Symfony\\\\Contracts\\\\EventDispatcher\\\\EventDispatcherInterface\\:\\:dispatch\\(\\) invoked with 2 parameters, 1 required\\.$#"
 			count: 1
 			path: Menu/MenuBuilder.php
 
@@ -1216,16 +1156,6 @@ parameters:
 			path: Routing/RouteAliasCollection.php
 
 		-
-			message: "#^Call to method getRouteCollection\\(\\) on an unknown class Symfony\\\\Component\\\\Routing\\\\RouterInterface\\.$#"
-			count: 2
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^Call to method hasOption\\(\\) on an unknown class Symfony\\\\Component\\\\Routing\\\\Route\\.$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has parameter \\$cacheDir with no typehint specified\\.$#"
 			count: 1
 			path: Routing/RouteAliasCollection.php
@@ -1277,21 +1207,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @param has invalid value \\(\\$optionName\\)\\: Unexpected token \"\\$optionName\", expected type at offset 165$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^Parameter \\$route of method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:hasConfiguredOption\\(\\) has invalid typehint type Symfony\\\\Component\\\\Routing\\\\Route\\.$#"
-			count: 2
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^Parameter \\$router of method Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:__construct\\(\\) has invalid typehint type Symfony\\\\Component\\\\Routing\\\\RouterInterface\\.$#"
-			count: 2
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Routing\\\\RouteAliasCollection\\:\\:\\$router has unknown class Symfony\\\\Component\\\\Routing\\\\RouterInterface as its type\\.$#"
 			count: 1
 			path: Routing/RouteAliasCollection.php
 

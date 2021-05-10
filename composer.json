@@ -1,45 +1,55 @@
 {
-    "name": "fateevv85/admin-theme-bundle-sf4",
-    "type": "symfony-bundle",
-    "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Marc Bach",
-            "email": "mail@avanzu.de",
-            "homepage": "http://www.avanzu.de",
-            "role": "Original Author"
-        },
-        {
-            "name": "Ángel Guzmán Maeso",
-            "email": "shakaran@gmail.com",
-            "homepage": "https://shakaran.net/blog",
-            "role": "Developer Collaborator"
-        }
-    ],
-    "require": {
-        "php": "^7.4",
-        "symfony/process": "^4.4",
-        "symfony/options-resolver": "^4.4",
-        "symfony/http-foundation" : "^4.4",
-        "symfony/http-kernel"  : "^4.4",
-        "symfony/event-dispatcher" : "^4.4",
-        "almasaeed2010/adminlte": "~2.3.0",
-        "symfony/console": "^4.4",
-        "twig/twig": "^3.0",
-        "symfony/config": "^4.4",
-        "symfony/dependency-injection": "^4.4",
-        "ext-fileinfo": "*"
+  "name": "fateevv85/admin-theme-bundle-sf4",
+  "type": "symfony-bundle",
+  "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marc Bach",
+      "email": "mail@avanzu.de",
+      "homepage": "http://www.avanzu.de",
+      "role": "Original Author"
     },
-    "require-dev": {
-        "phpspec/prophecy": "^1.6",
-        "phpstan/phpstan": "^0.12",
-        "vimeo/psalm": "^4.0"
+    {
+      "name": "Ángel Guzmán Maeso",
+      "email": "shakaran@gmail.com",
+      "homepage": "https://shakaran.net/blog",
+      "role": "Developer Collaborator"
     },
-    "suggest" : {
-        "knplabs/knp-menu-bundle" : "Allows easy menu integration."
-    },
-    "autoload": {
-        "psr-4": { "Avanzu\\AdminThemeBundle\\": "" }
+    {
+      "name": "Vasiliy Fateev",
+      "email": "dev.fateev@gmail.com",
+      "role": "Developer Collaborator"
     }
+  ],
+  "require": {
+    "php": "^7.4",
+    "symfony/process": "^4.4",
+    "symfony/options-resolver": "^4.4",
+    "symfony/http-foundation": "^4.4",
+    "symfony/http-kernel": "^4.4",
+    "symfony/event-dispatcher": "^4.4",
+    "almasaeed2010/adminlte": "~2.3.0",
+    "symfony/console": "^4.4",
+    "twig/twig": "^3.0",
+    "symfony/config": "^4.4",
+    "symfony/dependency-injection": "^4.4",
+    "ext-fileinfo": "*",
+    "symfony/security-core": "^4.4",
+    "symfony/form": "^4.4",
+    "symfony/framework-bundle": "^4.4"
+  },
+  "require-dev": {
+    "phpspec/prophecy": "^1.6",
+    "phpstan/phpstan": "^0.12",
+    "vimeo/psalm": "^4.0"
+  },
+  "suggest": {
+    "knplabs/knp-menu-bundle": "Allows easy menu integration."
+  },
+  "autoload": {
+    "psr-4": {
+      "Avanzu\\AdminThemeBundle\\": ""
+    }
+  }
 }
