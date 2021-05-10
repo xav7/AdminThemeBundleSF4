@@ -42,7 +42,10 @@
   "require-dev": {
     "phpspec/prophecy": "^1.6",
     "phpstan/phpstan": "^0.12",
-    "vimeo/psalm": "^4.0"
+    "vimeo/psalm": "^4.0",
+    "phpunit/phpunit": "9.*",
+    "symfony/browser-kit": "^4.4",
+    "symfony/yaml": "^4.4"
   },
   "suggest": {
     "knplabs/knp-menu-bundle": "Allows easy menu integration."
@@ -50,6 +53,11 @@
   "autoload": {
     "psr-4": {
       "Avanzu\\AdminThemeBundle\\": ""
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Avanzu\\AdminThemeBundle\\Tests\\": "tests/"
     }
   }
 }

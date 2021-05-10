@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Twig\Environment:
+    autowire: true
+
+  Twig\Loader\FilesystemLoader: ~
+
+  Twig\Loader\LoaderInterface: '@Twig\Loader\FilesystemLoader'
+#  Twig\Loader\:
+#    resource: '../../Controller'

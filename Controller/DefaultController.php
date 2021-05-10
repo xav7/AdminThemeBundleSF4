@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Avanzu\AdminThemeBundle\Controller;
 
 use Avanzu\AdminThemeBundle\Form\FormDemoModelType;
-use Symfony\Component\Form\Form;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
@@ -13,12 +13,9 @@ class DefaultController
 {
     private Environment $twig;
 
-    private Form        $form;
-
-    public function __construct(Environment $twig, Form $form)
+    public function __construct(Environment $twig)
     {
         $this->twig = $twig;
-        $this->form = $form;
     }
 
     /**
@@ -54,7 +51,9 @@ class DefaultController
 
     public function formAction(): Response
     {
-        $form = $this->form->get(FormDemoModelType::class);
+        $formFactory = Forms::createFormFactory();
+
+        $form = $formFactory->create(FormDemoModelType::class);
         $html = $this->twig->render(
             '@AvanzuAdminTheme/Default/form.html.twig',
             [

@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Avanzu\AdminThemeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -44,33 +44,16 @@ class AvanzuAdminThemeExtension extends Extension implements PrependExtensionInt
         }
 
         // Load the services (with parameters loaded), since twig require theme_manager service
-        try {
-            $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.xml');
-        } catch (FileLocatorFileNotFoundException $e) // Symfony 3.3 and 4.x are based in YAML
-        {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.yml');
-        } catch (InvalidArgumentException $e) // Symfony 3.3 and 4.x are based in YAML
-        {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.yml');
-        } catch (\Exception $e) // Symfony 3.3 and 4.x are based in YAML
-        {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.yml');
-            // echo 'AvanzuAdminTheme: ' . $e->getMessage() . PHP_EOL; // Use this for your own debugging
-        }
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
     }
 
     /**
      * Allow an extension to prepend the extension configurations.
      *
      * @see https://symfony.com/doc/current/bundles/prepend_extension.html
-     *
-     * @param ContainerBuilder $container
      */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $baseConfiguration = new Configuration();
 
