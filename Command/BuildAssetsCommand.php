@@ -44,9 +44,6 @@ class BuildAssetsCommand extends Command
      */
     protected $pubdir;
 
-    /**
-     * @var
-     */
     protected $webdir;
 
     protected $builddir;
@@ -146,8 +143,6 @@ class BuildAssetsCommand extends Command
     }
 
     /**
-     * @param                 $name
-     * @param                 $files
      * @param Filesystem      $fs
      * @param InputInterface  $in
      * @param OutputInterface $out

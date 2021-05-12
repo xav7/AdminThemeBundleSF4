@@ -10,8 +10,6 @@ namespace Avanzu\AdminThemeBundle\Util;
 interface DependencyResolverInterface
 {
     /**
-     * @param $items
-     *
      * @return $this
      */
     public function register($items);

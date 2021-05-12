@@ -9,8 +9,8 @@ test-functional-deprecations:
 
 test:
 	@make test-static
-	@make test-unit
-	@make test-functional
+#	@make test-unit
+#	@make test-functional
 
 test-static:
 	@make phpstan

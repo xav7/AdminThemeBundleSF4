@@ -32,8 +32,6 @@ class DependencyResolver implements DependencyResolverInterface
     protected $unresolved = [];
 
     /**
-     * @param $items
-     *
      * @return $this
      */
     public function register($items)
@@ -54,9 +52,6 @@ class DependencyResolver implements DependencyResolverInterface
         return $this->queued;
     }
 
-    /**
-     * @param $ids
-     */
     protected function resolve($ids)
     {
         foreach ($ids as $id) {
@@ -89,8 +84,6 @@ class DependencyResolver implements DependencyResolverInterface
     }
 
     /**
-     * @param $deps
-     *
      * @return array
      */
     protected function unresolved($deps)
@@ -99,8 +92,6 @@ class DependencyResolver implements DependencyResolverInterface
     }
 
     /**
-     * @param $id
-     *
      * @return bool
      */
     protected function hasDependencies($id)
@@ -113,8 +104,6 @@ class DependencyResolver implements DependencyResolverInterface
     }
 
     /**
-     * @param $id
-     *
      * @return null
      */
     protected function getDependencies($id)
@@ -127,9 +116,6 @@ class DependencyResolver implements DependencyResolverInterface
     }
 
     /**
-     * @param $needle
-     * @param $haystackId
-     *
      * @return bool
      */
     protected function contains($needle, $haystackId)

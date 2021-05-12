@@ -24,10 +24,6 @@ class NavBarUserLink
 
     /**
      * NavBarUserLink constructor.
-     *
-     * @param $title
-     * @param $path
-     * @param $parameters
      */
     public function __construct($title, $path, $parameters = [])
     {

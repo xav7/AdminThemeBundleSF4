@@ -94,10 +94,8 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param mixed $icon
-     *
-     * @return $this
      */
-    public function setIcon($icon)
+    public function setIcon($icon): MenuItemModel
     {
         $this->icon = $icon;
 
@@ -124,7 +122,10 @@ class MenuItemModel implements MenuItemInterface
     public function setIsActive(bool $isActive): MenuItemModel
     {
         if ($this->hasParent()) {
-            $this->getParent()->setIsActive($isActive);
+            /** @var MenuItemModel $parent */
+            $parent = $this->getParent();
+
+            $parent->setIsActive($isActive);
         }
 
         $this->isActive = $isActive;
@@ -137,7 +138,7 @@ class MenuItemModel implements MenuItemInterface
         return $this->parent instanceof MenuItemInterface;
     }
 
-    public function getParent(): MenuItemInterface
+    public function getParent(): ?MenuItemInterface
     {
         return $this->parent;
     }

@@ -16,7 +16,7 @@ interface MenuItemInterface
 
     public function setIsActive(bool $isActive): MenuItemInterface;
 
-    public function hasChildren();
+    public function hasChildren(): bool;
 
     /**
      * @return list<MenuItemInterface>
@@ -39,7 +39,7 @@ interface MenuItemInterface
 
     public function getBadgeColor(): string;
 
-    public function getParent(): MenuItemInterface;
+    public function getParent(): ?MenuItemInterface;
 
     public function hasParent(): bool;
 

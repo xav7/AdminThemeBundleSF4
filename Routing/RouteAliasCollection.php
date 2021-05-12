@@ -46,12 +46,6 @@ class RouteAliasCollection
 
     /**
      * RouteAliasCollection constructor.
-     *
-     * @param                 $cacheDir
-     * @param RouterInterface $router
-     * @param                 $optionName
-     * @param                 $env
-     * @param                 $debug
      */
     public function __construct($cacheDir, RouterInterface $router, $optionName, $env, $debug)
     {
@@ -84,8 +78,6 @@ class RouteAliasCollection
     }
 
     /**
-     * @param $name
-     *
      * @return bool
      */
     public function hasAlias($name)
@@ -96,8 +88,6 @@ class RouteAliasCollection
     }
 
     /**
-     * @param $name
-     *
      * @return mixed
      */
     public function getRouteByAlias($name)

@@ -171,21 +171,6 @@ parameters:
 			path: Command/BuildAssetsCommand.php
 
 		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$files\\)\\: Unexpected token \"\\$files\", expected type at offset 72$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 35$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\)\\: Unexpected token \"\\\\r\\\\n     \", expected type at offset 16$#"
-			count: 1
-			path: Command/BuildAssetsCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$command of class Symfony\\\\Component\\\\Process\\\\Process constructor expects array, string given\\.$#"
 			count: 2
 			path: Command/BuildAssetsCommand.php
@@ -381,21 +366,6 @@ parameters:
 			path: Command/InitializeCommand.php
 
 		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$expectedMethod\\)\\: Unexpected token \"\\$expectedMethod\", expected type at offset 71$#"
-			count: 1
-			path: Command/InitializeCommand.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$originDir\\)\\: Unexpected token \"\\$originDir\", expected type at offset 19$#"
-			count: 1
-			path: Command/InitializeCommand.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$targetDir\\)\\: Unexpected token \"\\$targetDir\", expected type at offset 45$#"
-			count: 1
-			path: Command/InitializeCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$path of function dirname expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: Command/InitializeCommand.php
@@ -457,12 +427,7 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @param for parameter \\$event with type Avanzu\\\\AdminThemeBundle\\\\Composer\\\\CommandEvent is not subtype of native type Composer\\\\Script\\\\Event\\.$#"
-			count: 1
-			path: Composer/ScriptHandler.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$event CommandEvent A instance\\)\\: Unexpected token \"\\$event\", expected type at offset 63$#"
-			count: 1
+			count: 2
 			path: Composer/ScriptHandler.php
 
 		-
@@ -472,6 +437,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:executeCommand\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\$event of method Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:fetchThemeVendors\\(\\) has invalid typehint type Avanzu\\\\AdminThemeBundle\\\\Composer\\\\CommandEvent\\.$#"
 			count: 1
 			path: Composer/ScriptHandler.php
 
@@ -504,21 +474,6 @@ parameters:
 			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Composer\\\\ScriptHandler\\:\\:\\$options has no typehint specified\\.$#"
 			count: 1
 			path: Composer/ScriptHandler.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\AvanzuAdminThemeExtension\\:\\:prepend\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: DependencyInjection/AvanzuAdminThemeExtension.php
-
-		-
-			message: "#^Cannot access offset 'TwigBundle' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
-			count: 1
-			path: DependencyInjection/Compiler/TwigPass.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\DependencyInjection\\\\Compiler\\\\TwigPass\\:\\:process\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: DependencyInjection/Compiler/TwigPass.php
 
 		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:children\\(\\)\\.$#"
@@ -881,62 +836,12 @@ parameters:
 			path: Model/FormDemoModel.php
 
 		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\:\\:setIsActive\\(\\) has parameter \\$isActive with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemInterface.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$isActive\\)\\: Unexpected token \"\\$isActive\", expected type at offset 19$#"
-			count: 1
-			path: Model/MenuItemInterface.php
-
-		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$badge with no typehint specified\\.$#"
 			count: 1
 			path: Model/MenuItemModel.php
 
 		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$badgeColor with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$icon with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$id with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$route with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$routeArgs with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:setChildren\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:\\$badgeColor has no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:\\$parent \\(Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\) does not accept Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemInterface\\|null\\.$#"
 			count: 1
 			path: Model/MenuItemModel.php
 
@@ -982,21 +887,6 @@ parameters:
 
 		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\NavBarUserLink\\:\\:setTitle\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: Model/NavBarUserLink.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$parameters\\)\\: Unexpected token \"\\$parameters\", expected type at offset 106$#"
-			count: 1
-			path: Model/NavBarUserLink.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$path\\)\\: Unexpected token \"\\$path\", expected type at offset 85$#"
-			count: 1
-			path: Model/NavBarUserLink.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$title\\)\\: Unexpected token \"\\$title\", expected type at offset 63$#"
 			count: 1
 			path: Model/NavBarUserLink.php
 
@@ -1186,31 +1076,6 @@ parameters:
 			path: Routing/RouteAliasCollection.php
 
 		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$cacheDir\\)\\: Unexpected token \"\\$cacheDir\", expected type at offset 85$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$debug\\)\\: Unexpected token \"\\$debug\", expected type at offset 244$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$env\\)\\: Unexpected token \"\\$env\", expected type at offset 208$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$name\\)\\: Unexpected token \"\\$name\", expected type at offset 19$#"
-			count: 2
-			path: Routing/RouteAliasCollection.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$optionName\\)\\: Unexpected token \"\\$optionName\", expected type at offset 165$#"
-			count: 1
-			path: Routing/RouteAliasCollection.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: Routing/RouteAliasCollection.php
@@ -1376,47 +1241,12 @@ parameters:
 			path: Util/DependencyResolver.php
 
 		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$deps\\)\\: Unexpected token \"\\$deps\", expected type at offset 19$#"
-			count: 1
-			path: Util/DependencyResolver.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$haystackId\\)\\: Unexpected token \"\\$haystackId\", expected type at offset 42$#"
-			count: 1
-			path: Util/DependencyResolver.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$id\\)\\: Unexpected token \"\\$id\", expected type at offset 19$#"
-			count: 2
-			path: Util/DependencyResolver.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$ids\\)\\: Unexpected token \"\\$ids\", expected type at offset 19$#"
-			count: 1
-			path: Util/DependencyResolver.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$items\\)\\: Unexpected token \"\\$items\", expected type at offset 19$#"
-			count: 1
-			path: Util/DependencyResolver.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$needle\\)\\: Unexpected token \"\\$needle\", expected type at offset 19$#"
-			count: 1
-			path: Util/DependencyResolver.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: Util/DependencyResolver.php
 
 		-
 			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Util\\\\DependencyResolverInterface\\:\\:register\\(\\) has parameter \\$items with no typehint specified\\.$#"
-			count: 1
-			path: Util/DependencyResolverInterface.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(\\$items\\)\\: Unexpected token \"\\$items\", expected type at offset 19$#"
 			count: 1
 			path: Util/DependencyResolverInterface.php
 

@@ -137,7 +137,7 @@ class ScriptHandler
     /**
      * Install avanzu dependencies
      *
-     * @param $event CommandEvent A instance
+     * @param CommandEvent $event A instance
      */
     public static function fetchThemeVendors(Event $event): void
     {

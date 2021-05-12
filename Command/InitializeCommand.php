@@ -76,13 +76,6 @@ class InitializeCommand extends Command
         ];
     }
 
-    /**
-     * @param $originDir
-     * @param $targetDir
-     * @param $expectedMethod
-     *
-     * @return string
-     */
     protected function establishLink($originDir, $targetDir, $expectedMethod): string
     {
         $this->filesystem->remove($targetDir);
