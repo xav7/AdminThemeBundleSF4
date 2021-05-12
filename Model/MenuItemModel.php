@@ -8,43 +8,37 @@ use function array_search;
 
 class MenuItemModel implements MenuItemInterface
 {
-    protected string $identifier;
+    private string             $identifier;
 
-    protected string $label;
+    private string             $label;
 
-    protected string $route;
+    private string             $route;
 
-    protected array  $routeArgs = [];
+    private array              $routeArgs;
 
-    protected bool   $isActive  = false;
+    private bool               $isActive = false;
 
-    protected array  $children  = [];
+    private array              $children = [];
 
-    /**
-     * @var mixed
-     */
-    protected $icon = false;
+    private string             $icon;
 
-    /**
-     * @var mixed
-     */
-    protected                    $badge      = false;
+    private string             $badge;
 
-    protected string             $badgeColor = 'green';
+    private string             $badgeColor;
 
-    protected ?MenuItemInterface $parent     = null;
+    private ?MenuItemInterface $parent   = null;
 
-    private array                $options;
+    private array              $options;
 
     public function __construct(
         string $id,
         string $label,
         string $route,
         array $routeArgs = [],
-        $icon = false,
-        $badge = false,
-        string $badgeColor = 'green',
-        array $options = []
+        string $icon = '',
+        array $options = [],
+        string $badge = '',
+        string $badgeColor = 'green'
     ) {
         $this->badge      = $badge;
         $this->icon       = $icon;
@@ -56,18 +50,12 @@ class MenuItemModel implements MenuItemInterface
         $this->options    = $options;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBadge()
+    public function getBadge(): string
     {
         return $this->badge;
     }
 
-    /**
-     * @param mixed $badge
-     */
-    public function setBadge($badge): MenuItemModel
+    public function setBadge(string $badge): MenuItemModel
     {
         $this->badge = $badge;
 
@@ -84,18 +72,12 @@ class MenuItemModel implements MenuItemInterface
         $this->children = $children;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
 
-    /**
-     * @param mixed $icon
-     */
-    public function setIcon($icon): MenuItemModel
+    public function setIcon(string $icon): MenuItemModel
     {
         $this->icon = $icon;
 

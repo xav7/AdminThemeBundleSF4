@@ -836,16 +836,6 @@ parameters:
 			path: Model/FormDemoModel.php
 
 		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$badge with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
-			message: "#^Method Avanzu\\\\AdminThemeBundle\\\\Model\\\\MenuItemModel\\:\\:__construct\\(\\) has parameter \\$icon with no typehint specified\\.$#"
-			count: 1
-			path: Model/MenuItemModel.php
-
-		-
 			message: "#^Property Avanzu\\\\AdminThemeBundle\\\\Model\\\\MessageModel\\:\\:\\$from \\(Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\) does not accept Avanzu\\\\AdminThemeBundle\\\\Model\\\\UserInterface\\|null\\.$#"
 			count: 1
 			path: Model/MessageModel.php

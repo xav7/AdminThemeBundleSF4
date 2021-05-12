@@ -27,15 +27,9 @@ interface MenuItemInterface
 
     public function removeChild(MenuItemInterface $child): MenuItemInterface;
 
-    /**
-     * @return mixed
-     */
-    public function getIcon();
+    public function getIcon(): string;
 
-    /**
-     * @return mixed
-     */
-    public function getBadge();
+    public function getBadge(): string;
 
     public function getBadgeColor(): string;
 
