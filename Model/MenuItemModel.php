@@ -1,46 +1,24 @@
 <?php
-/**
- * MenuItemModel.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Model;
 
-/**
- * Class MenuItemModel
- *
- * @package Avanzu\AdminThemeBundle\Model
- */
+use function array_search;
+
 class MenuItemModel implements MenuItemInterface
 {
-    /**
-     * @var mixed
-     */
-    protected $identifier;
+    protected string $identifier;
 
-    /**
-     * @var string
-     */
-    protected $label;
+    protected string $label;
 
-    /**
-     * @var string
-     */
-    protected $route;
+    protected string $route;
 
-    /**
-     * @var array
-     */
-    protected $routeArgs = [];
-    /**
-     * @var bool
-     */
-    protected $isActive = false;
-    /**
-     * @var array
-     */
-    protected $children = [];
+    protected array  $routeArgs = [];
+
+    protected bool   $isActive  = false;
+
+    protected array  $children  = [];
 
     /**
      * @var mixed
@@ -50,31 +28,32 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @var mixed
      */
-    protected $badge = false;
+    protected                    $badge      = false;
 
-    protected $badgeColor = 'green';
+    protected string             $badgeColor = 'green';
 
-    /**
-     * @var MenuItemInterface
-     */
-    protected $parent = null;
+    protected ?MenuItemInterface $parent     = null;
+
+    private array                $options;
 
     public function __construct(
-        $id,
-        $label,
-        $route,
-        $routeArgs = [],
+        string $id,
+        string $label,
+        string $route,
+        array $routeArgs = [],
         $icon = false,
         $badge = false,
-        $badgeColor = 'green'
+        string $badgeColor = 'green',
+        array $options = []
     ) {
-        $this->badge = $badge;
-        $this->icon = $icon;
+        $this->badge      = $badge;
+        $this->icon       = $icon;
         $this->identifier = $id;
-        $this->label = $label;
-        $this->route = $route;
-        $this->routeArgs = $routeArgs;
+        $this->label      = $label;
+        $this->route      = $route;
+        $this->routeArgs  = $routeArgs;
         $this->badgeColor = $badgeColor;
+        $this->options    = $options;
     }
 
     /**
@@ -87,28 +66,20 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param mixed $badge
-     *
-     * @return $this
      */
-    public function setBadge($badge)
+    public function setBadge($badge): MenuItemModel
     {
         $this->badge = $badge;
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
 
-    /**
-     * @param array $children
-     */
-    public function setChildren($children)
+    public function setChildren(array $children): void
     {
         $this->children = $children;
     }
@@ -133,40 +104,24 @@ class MenuItemModel implements MenuItemInterface
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
 
-    /**
-     * @param mixed $identifier
-     *
-     * @return $this
-     */
-    public function setIdentifier($identifier)
+    public function setIdentifier(string $identifier): MenuItemModel
     {
         $this->identifier = $identifier;
 
         return $this;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getIsActive()
+    public function getIsActive(): bool
     {
         return $this->isActive;
     }
 
-    /**
-     * @param boolean $isActive
-     *
-     * @return $this
-     */
-    public function setIsActive($isActive)
+    public function setIsActive(bool $isActive): MenuItemModel
     {
         if ($this->hasParent()) {
             $this->getParent()->setIsActive($isActive);
@@ -177,108 +132,65 @@ class MenuItemModel implements MenuItemInterface
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasParent()
+    public function hasParent(): bool
     {
         return $this->parent instanceof MenuItemInterface;
     }
 
-    /**
-     * @return \Avanzu\AdminThemeBundle\Model\MenuItemInterface
-     */
-    public function getParent()
+    public function getParent(): MenuItemInterface
     {
         return $this->parent;
     }
 
-    /**
-     * @param \Avanzu\AdminThemeBundle\Model\MenuItemInterface $parent
-     *
-     * @return $this
-     */
-    public function setParent(MenuItemInterface $parent = null)
+    public function setParent(MenuItemInterface $parent = null): MenuItemModel
     {
         $this->parent = $parent;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->label;
     }
 
-    /**
-     * @param string $label
-     *
-     * @return $this
-     */
-    public function setLabel($label)
+    public function setLabel(string $label): MenuItemModel
     {
         $this->label = $label;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRoute()
+    public function getRoute(): string
     {
         return $this->route;
     }
 
-    /**
-     * @param string $route
-     *
-     * @return $this
-     */
-    public function setRoute($route)
+    public function setRoute(string $route): MenuItemModel
     {
         $this->route = $route;
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getRouteArgs()
+    public function getRouteArgs(): array
     {
         return $this->routeArgs;
     }
 
-    /**
-     * @param array $routeArgs
-     *
-     * @return $this
-     */
-    public function setRouteArgs($routeArgs)
+    public function setRouteArgs(array $routeArgs): MenuItemModel
     {
         $this->routeArgs = $routeArgs;
 
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasChildren()
+    public function hasChildren(): bool
     {
         return count($this->children) > 0;
     }
 
-    /**
-     * @param MenuItemInterface $child
-     *
-     * @return $this
-     */
-    public function addChild(MenuItemInterface $child)
+    public function addChild(MenuItemInterface $child): MenuItemModel
     {
         $child->setParent($this);
         $this->children[] = $child;
@@ -286,44 +198,30 @@ class MenuItemModel implements MenuItemInterface
         return $this;
     }
 
-    /**
-     * @param MenuItemInterface $child
-     *
-     * @return $this
-     */
-    public function removeChild(MenuItemInterface $child)
+    public function removeChild(MenuItemInterface $child): MenuItemModel
     {
-        if (false !== ($key = array_search($child, $this->children))) {
+        $key = array_search($child, $this->children, true);
+
+        if (false !== $key) {
             unset($this->children[$key]);
         }
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBadgeColor()
+    public function getBadgeColor(): string
     {
         return $this->badgeColor;
     }
 
-    /**
-     * @param string $badgeColor
-     *
-     * @return $this
-     */
-    public function setBadgeColor($badgeColor)
+    public function setBadgeColor(string $badgeColor): MenuItemModel
     {
         $this->badgeColor = $badgeColor;
 
         return $this;
     }
 
-    /**
-     * @return MenuItemInterface|null
-     */
-    public function getActiveChild()
+    public function getActiveChild(): ?MenuItemInterface
     {
         foreach ($this->children as $child) {
             if ($child->isActive()) {
@@ -334,11 +232,13 @@ class MenuItemModel implements MenuItemInterface
         return null;
     }
 
-    /**
-     * @return bool
-     */
-    public function isActive()
+    public function isActive(): bool
     {
         return $this->isActive;
+    }
+
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }

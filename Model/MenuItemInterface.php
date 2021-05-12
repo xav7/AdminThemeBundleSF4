@@ -1,69 +1,31 @@
 <?php
-/**
- * MenuItemInterface.php
- * avanzu-admin
- * Date: 23.02.14
- */
+
+declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Model;
 
-/**
- * Interface MenuItemInterface
- *
- * @package Avanzu\AdminThemeBundle\Model
- */
 interface MenuItemInterface
 {
-    /**
-     * @return mixed
-     */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 
-    /**
-     * @return mixed
-     */
-    public function getLabel();
+    public function getLabel(): string;
 
-    /**
-     * @return mixed
-     */
-    public function getRoute();
+    public function getRoute(): string;
 
-    /**
-     * @return mixed
-     */
-    public function isActive();
+    public function isActive(): bool;
 
-    /**
-     * @param $isActive
-     *
-     * @return mixed
-     */
-    public function setIsActive($isActive);
+    public function setIsActive(bool $isActive): MenuItemInterface;
 
-    /**
-     * @return mixed
-     */
     public function hasChildren();
 
     /**
-     * @return mixed
+     * @return list<MenuItemInterface>
      */
-    public function getChildren();
+    public function getChildren(): array;
 
-    /**
-     * @param MenuItemInterface $child
-     *
-     * @return mixed
-     */
-    public function addChild(MenuItemInterface $child);
+    public function addChild(MenuItemInterface $child): MenuItemInterface;
 
-    /**
-     * @param MenuItemInterface $child
-     *
-     * @return mixed
-     */
-    public function removeChild(MenuItemInterface $child);
+    public function removeChild(MenuItemInterface $child): MenuItemInterface;
 
     /**
      * @return mixed
@@ -75,30 +37,15 @@ interface MenuItemInterface
      */
     public function getBadge();
 
-    /**
-     * @return mixed
-     */
-    public function getBadgeColor();
+    public function getBadgeColor(): string;
 
-    /**
-     * @return mixed
-     */
-    public function getParent();
+    public function getParent(): MenuItemInterface;
 
-    /**
-     * @return mixed
-     */
-    public function hasParent();
+    public function hasParent(): bool;
 
-    /**
-     * @param MenuItemInterface $parent
-     *
-     * @return mixed
-     */
-    public function setParent(MenuItemInterface $parent = null);
+    public function setParent(MenuItemInterface $parent = null): MenuItemInterface;
 
-    /**
-     * @return MenuItemInterface|null
-     */
-    public function getActiveChild();
+    public function getActiveChild(): ?MenuItemInterface;
+
+    public function getOptions(): array;
 }
