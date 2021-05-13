@@ -35,15 +35,17 @@ class BreadcrumbController
      */
     public function breadcrumbAction(Request $request, string $title = ''): Response
     {
-        if (!$this->eventDispatcher->hasListeners(ThemeEvents::THEME_BREADCRUMB)) {
+        if (!$this->eventDispatcher->hasListeners(SidebarMenuEvent::class)) {
             return new Response();
         }
 
         $sidebarMenuEvent = new SidebarMenuEvent($request);
+
+        $this->eventDispatcher->dispatch($sidebarMenuEvent);
+
         $active           = $sidebarMenuEvent->getActive();
         $list             = [];
 
-        $this->eventDispatcher->dispatch($sidebarMenuEvent, ThemeEvents::THEME_BREADCRUMB);
 
         if ($active) {
             $list[] = $active;
