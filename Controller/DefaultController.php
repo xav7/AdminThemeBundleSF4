@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Avanzu\AdminThemeBundle\Controller;
 
-use Avanzu\AdminThemeBundle\Form\FormDemoModelType;
-use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
@@ -45,21 +43,6 @@ class DefaultController
     public function uiIconsAction(): Response
     {
         $html = $this->twig->render('@AvanzuAdminTheme/Default/index.html.twig');
-
-        return new Response($html);
-    }
-
-    public function formAction(): Response
-    {
-        $formFactory = Forms::createFormFactory();
-
-        $form = $formFactory->create(FormDemoModelType::class);
-        $html = $this->twig->render(
-            '@AvanzuAdminTheme/Default/form.html.twig',
-            [
-                'form' => $form->createView(),
-            ]
-        );
 
         return new Response($html);
     }

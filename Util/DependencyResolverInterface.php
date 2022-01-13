@@ -9,13 +9,7 @@ namespace Avanzu\AdminThemeBundle\Util;
 
 interface DependencyResolverInterface
 {
-    /**
-     * @return $this
-     */
-    public function register($items);
+    public function register(mixed $items): DependencyResolverInterface;
 
-    /**
-     * @return array
-     */
-    public function resolveAll();
+    public function resolveAll(): array;
 }

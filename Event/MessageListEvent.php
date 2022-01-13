@@ -18,46 +18,35 @@ class MessageListEvent extends ThemeEvent
 {
     /**
      * Stores the list of messages
-     *
-     * @var array
      */
-    protected $messages = [];
+    protected array $messages = [];
 
     /**
      * Stores the total amount
-     *
-     * @var int
      */
-    protected $totalMessages = 0;
+    protected int $totalMessages = 0;
 
-    protected $max = null;
+    protected int $max           = 0;
 
     /**
      * MessageListEvent constructor.
-     *
-     * @param integer $max Maximun number of notifications displayed in panel
      */
-    public function __construct($max = NULL)
+    public function __construct()
     {
-        $this->max = $max;
     }
 
     /**
-     * Get the maximun number of notifications displayed in panel
-     * 
-     * @return integer
+     * Get the maximum number of notifications displayed in panel
      */
-    public function getMax()
+    public function getMax(): int
     {
         return $this->max;
     }
 
     /**
      * Returns the message list
-     *
-     * @return array
      */
-    public function getMessages()
+    public function getMessages(): array
     {
         return $this->messages;
     }
@@ -78,11 +67,9 @@ class MessageListEvent extends ThemeEvent
 
     /**
      * Returns the message count
-     *
-     * @return int
      */
-    public function getTotal()
+    public function getTotal(): int
     {
-        return $this->totalMessages == 0 ? count($this->messages) : $this->totalMessages;
+        return $this->totalMessages === 0 ? count($this->messages) : $this->totalMessages;
     }
 }

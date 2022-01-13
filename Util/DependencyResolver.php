@@ -14,37 +14,22 @@ namespace Avanzu\AdminThemeBundle\Util;
  */
 class DependencyResolver implements DependencyResolverInterface
 {
-    /**
-     * @var array
-     */
-    protected $queued = [];
-    /**
-     * @var array
-     */
-    protected $registered = [];
-    /**
-     * @var array
-     */
-    protected $resolved = [];
-    /**
-     * @var array
-     */
-    protected $unresolved = [];
+    protected array $queued     = [];
 
-    /**
-     * @return $this
-     */
-    public function register($items)
+    protected array $registered = [];
+
+    protected array $resolved   = [];
+
+    protected array $unresolved = [];
+
+    public function register($items): DependencyResolverInterface
     {
         $this->registered = $items;
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function resolveAll()
+    public function resolveAll(): array
     {
         $this->failOnCircularDependencies();
         $this->resolve(array_keys($this->registered));
@@ -62,7 +47,7 @@ class DependencyResolver implements DependencyResolverInterface
                 continue;
             } // unregistered
             if (!$this->hasDependencies($id)) { // standalone
-                $this->queued[] = $this->registered[$id];
+                $this->queued[]      = $this->registered[$id];
                 $this->resolved[$id] = true;
 
                 continue;
@@ -75,7 +60,7 @@ class DependencyResolver implements DependencyResolverInterface
             $deps = $this->unresolved($this->getDependencies($id));
 
             if (empty($deps)) {
-                $this->queued[] = $this->registered[$id];
+                $this->queued[]      = $this->registered[$id];
                 $this->resolved[$id] = true;
 
                 continue;
@@ -83,18 +68,12 @@ class DependencyResolver implements DependencyResolverInterface
         }
     }
 
-    /**
-     * @return array
-     */
-    protected function unresolved($deps)
+    protected function unresolved($deps): array
     {
         return array_diff($deps, array_keys($this->resolved));
     }
 
-    /**
-     * @return bool
-     */
-    protected function hasDependencies($id)
+    protected function hasDependencies($id): bool
     {
         if (!isset($this->registered[$id])) {
             return false;
@@ -115,10 +94,7 @@ class DependencyResolver implements DependencyResolverInterface
         return $this->registered[$id]['deps'];
     }
 
-    /**
-     * @return bool
-     */
-    protected function contains($needle, $haystackId)
+    protected function contains($needle, $haystackId): bool
     {
         $deps = $this->getDependencies($haystackId);
         if (!is_array($deps)) {
@@ -131,7 +107,7 @@ class DependencyResolver implements DependencyResolverInterface
     /**
      * @throws \RuntimeException
      */
-    protected function failOnCircularDependencies()
+    protected function failOnCircularDependencies(): void
     {
         $ids = array_keys($this->registered);
 
@@ -147,7 +123,9 @@ class DependencyResolver implements DependencyResolverInterface
                     throw new \RuntimeException(
                         sprintf(
                             'Circular dependency [%s] depends on [%s] which itself depends on [%s]',
-                            $id, $dep, $id
+                            $id,
+                            $dep,
+                            $id
                         )
                     );
                 }

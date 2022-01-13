@@ -4,13 +4,10 @@ includes:
 parameters:
    level: max
    paths:
-       - Command
-       - Composer
        - Controller
        - DependencyInjection
        - Event
        - EventListener
-       - Menu
        - Model
        - Resources
        - Routing

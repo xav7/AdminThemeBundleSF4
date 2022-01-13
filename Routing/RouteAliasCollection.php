@@ -8,6 +8,7 @@
 namespace Avanzu\AdminThemeBundle\Routing;
 
 use Symfony\Component\Config\ConfigCache;
+use Symfony\Component\Config\Resource\ResourceInterface;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -49,17 +50,14 @@ class RouteAliasCollection
      */
     public function __construct($cacheDir, RouterInterface $router, $optionName, $env, $debug)
     {
-        $this->cacheDir = $cacheDir;
-        $this->router = $router;
+        $this->cacheDir   = $cacheDir;
+        $this->router     = $router;
         $this->optionName = $optionName;
-        $this->debug = $debug;
-        $this->env = $env;
+        $this->debug      = $debug;
+        $this->env        = $env;
     }
 
-    /**
-     * @return string
-     */
-    protected function getCacheFileName()
+    protected function getCacheFileName(): string
     {
         return sprintf(
             '%s/AliasRoutes/%s%s.php',
@@ -70,37 +68,28 @@ class RouteAliasCollection
     }
 
     /**
-     * @return \Symfony\Component\Config\Resource\ResourceInterface[]
+     * @return ResourceInterface[]
      */
-    public function getResources()
+    public function getResources(): array
     {
         return $this->router->getRouteCollection()->getResources();
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAlias($name)
+    public function hasAlias($name): bool
     {
         $aliases = $this->getAliases();
 
         return isset($aliases[$name]);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRouteByAlias($name)
+    public function getRouteByAlias($name): mixed
     {
         $aliases = $this->getAliases();
 
-        return isset($aliases[$name]) ? $aliases[$name] : NULL;
+        return $aliases[$name] ?? null;
     }
 
-    /**
-     * @return array|mixed
-     */
-    public function getAliases()
+    public function getAliases(): mixed
     {
         if (!is_null($this->routeAliases)) {
             return $this->routeAliases;
@@ -108,7 +97,7 @@ class RouteAliasCollection
 
         $cache = new ConfigCache($this->getCacheFileName(), $this->debug);
 
-        if  ($cache->isFresh()) {
+        if ($cache->isFresh()) {
             $this->routeAliases = unserialize(file_get_contents($cache->getPath()));
 
             return $this->routeAliases;
@@ -120,14 +109,11 @@ class RouteAliasCollection
         return $this->routeAliases;
     }
 
-    /**
-     * @return array
-     */
-    protected function loadRoutes()
+    protected function loadRoutes(): array
     {
         $aliases = [];
-        foreach($this->router->getRouteCollection()->all() as $name => $candidate) {
-            if(!$this->hasConfiguredOption($candidate)) {
+        foreach ($this->router->getRouteCollection()->all() as $name => $candidate) {
+            if (!$this->hasConfiguredOption($candidate)) {
                 continue;
             }
 
@@ -137,14 +123,9 @@ class RouteAliasCollection
         return $aliases;
     }
 
-    /**
-     * @param Route $route
-     *
-     * @return bool
-     */
-    public function hasConfiguredOption(Route $route)
+    public function hasConfiguredOption(Route $route): bool
     {
-        if(!$route->hasOption($this->optionName)) {
+        if (!$route->hasOption($this->optionName)) {
             return false;
         }
 
