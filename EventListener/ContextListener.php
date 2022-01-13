@@ -49,8 +49,4 @@ class ContextListener
 
         return $user;
     }
-
-    public function onController(FilterControllerEvent $event)
-    {
-    }
 }
